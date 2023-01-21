@@ -1,0 +1,24 @@
+@mixin title-text {
+  font-family: "Orbitron";
+  font-size: 20px;
+}
+
+@mixin regular-text {
+  font-family: "Saira Condensed";
+  font-size: 18px;
+}
+
+@mixin small-text {
+  font-family: "Saira Condensed";
+  font-size: 16px;
+}
+
+@mixin techie-big-text {
+  font-family: "Share Tech Mono";
+  font-size: 29px;
+}
+
+@mixin techie-small-text {
+  font-family: "Share Tech Mono";
+  font-size: 14px;
+}

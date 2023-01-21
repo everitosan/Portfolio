@@ -1,0 +1,11 @@
+head:
+  title: Projectos
+  description: Mis proyectos profesionales
+title: Proyectos
+categories:
+- name: Código abierto
+  color: "#6B03EF"
+  projects:
+  - name: Dziro
+    url: https://dziro.app
+    description: Organiza tus compras online

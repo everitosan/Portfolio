@@ -1,0 +1,11 @@
+head:
+  title: Experiencia
+  description: Este es un pequeño resumen de mi experiencia personal
+title: Mi Path
+positions:
+- logo: "/img/frog.svg"
+  color: "#03EF7E"
+  company: Frog
+  position: Sr Design Technologist
+  lapse: 2022-2023
+  description: En realidad no me encantó este trabajo.

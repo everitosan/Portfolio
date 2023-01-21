@@ -1,30 +1,56 @@
-## Getting Started
+# Portfolio web app
+App for portfolio written with svelte kit.
 
-First, run the development server:
 
-```bash
-yarn dev
+## Development
+
+### Data
+
+All information is retrieved by the use of requests.
+
+In **development**, the svelte kit server helps to serve data inside /data directory.
+
+```
+┌─────────────────────┬────────┐
+│                     │        │
+│                     │        │
+│                     │        │
+│      localhost      │◄───────┘
+│                     │
+│                     │
+│                     │
+└─────────────────────┘
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+In **production** build, data is retrieved by the production server.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+┌─────────────────────┐            ┌──────────────────┐
+│                     ├───────────►│                  │
+│                     │            │                  │
+│                     │            │                  │
+│      localhost      │            │      NGINX       │
+│                     │            │                  │
+│                     │            │     (remote)     │
+│                     │            │                  │
+└─────────────────────┘            └──────────────────┘
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Release
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+It is recomended to first upload the yaml files.
 
-## Learn More
+```bash
+# Upload data with rsync
+$ rsync --partial -Pr ./apps/web/static/data iox:/var/www/html/prezento
+```
 
-To learn more about Next.js, take a look at the following resources:
+Then a build can be produced and uploaded.
+```bash
+# Generate build version
+$ npx turbo build --filter=web
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
+# Upload release
+$ rsync --partial -Pr ./apps/web/build/ iox:/var/www/html/prezento
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```

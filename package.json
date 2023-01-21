@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio",
+  "name": "portfolio",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -20,6 +20,11 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@fontsource/orbitron": "^4.5.11",
+    "@fontsource/saira-condensed": "^4.5.9",
+    "@fontsource/share-tech-mono": "^4.5.9",
+    "yaml": "^2.2.1"
+  },
   "packageManager": "npm@8.19.1"
 }

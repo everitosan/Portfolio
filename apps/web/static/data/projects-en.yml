@@ -1,0 +1,14 @@
+head:
+  title: Projects
+  description: Overview of professional projects
+title: Projects
+categories:
+- name: Open Source
+  color: "#6B03EF"
+  projects:
+  - name: Averto
+    url: https://gitlab.com/opensource13/averto
+    description: A webserver for webhooks written in go.
+  - name: Dziro
+    url: https://dziro.app
+    description: Manage your online wishes
