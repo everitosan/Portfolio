@@ -1,6 +1,5 @@
 <script lang="ts">
   export let variant : "primary" | "secondary" | "tertiary";
-  import {clearerColor } from "ui/utils/color"
 </script>
 
 <div class="Title">
@@ -8,10 +7,7 @@
   <div class={`Title__comment Title__comment--${variant}`}></div>
   
   <div class='Title__text'>
-    <div class={`Title__text--blur Title__text--blur--${variant}`}>
-      <slot></slot>
-    </div>
-    <h1 class="Title__text--normal">
+    <h1 class={`Title__text--normal Title__text--normal--${variant}`}>
       <slot></slot>
     </h1>
   </div>
@@ -25,8 +21,11 @@
   :root {
     --title-font-size: #{utils.sizing(8)};
     --title-comment-primary-color: #{colors.$yellow};
+    --title-comment-primary-color-transparent: #{colors.$yellow-transparent};
     --title-comment-secondary-color: #{colors.$purple};
+    --title-comment-secondary-color-transparent: #{colors.$purple-transparent};
     --title-comment-tertiary-color: #{colors.$orange};
+    --title-comment-tertiary-color-transparent: #{colors.$orange-transparent};
   }
 
   .Title {
@@ -61,28 +60,26 @@
     margin: 0;
     position: relative;
 
-    &--blur {
-      position: absolute;
-      left: utils.sizing(1.5);
-      top: 0;
-      opacity: 0.9;
-      filter: blur(4px);
-
-      &--primary {
-        color: var(--title-comment-primary-color);
-      }
-      &--secondary {
-        color: var(--title-comment-secondary-color);
-      }
-      &--tertiary {
-        color: var(--title-comment-tertiary-color);
-      }
-    }
 
     &--normal {
       font-size: var(--title-font-size);
       margin: 0;
       position: relative;
+      &--primary {
+        text-shadow: 
+          2px 0px 4px var(--title-comment-primary-color-transparent),
+          -2px 0px 4px var(--title-comment-primary-color-transparent);
+      }
+      &--secondary {
+        text-shadow: 
+          2px 0px 4px var(--title-comment-secondary-color-transparent),
+          -2px 0px 4px var(--title-comment-secondary-color-transparent);
+      }
+      &--tertiary {
+        text-shadow: 
+          2px 0px 4px var(--title-comment-tertiary-color-transparent),
+          -2px 0px 4px var(--title-comment-tertiary-color-transparent);
+      }
     }
   }
 

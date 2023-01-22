@@ -36,7 +36,7 @@ In **production** build, data is retrieved by the production server.
 └─────────────────────┘            └──────────────────┘
 ```
 
-### Release
+## Release
 
 It is recomended to first upload the yaml files.
 

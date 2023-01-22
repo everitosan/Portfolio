@@ -4,13 +4,13 @@
 	import { page } from '$app/stores';
 
 	let lang = 'en';
-	let section = 'about/';
+	let section = '';
 	let mobileToggle = true;
 
 	$: {
 		lang = getLang($page.params.lang);
 		section = getSection($page.url.pathname);
-		toggleMenu();
+		mobileToggle = false
 	}
 
 	const getLang = (lng: string | undefined): string => {
@@ -23,7 +23,7 @@
 			const sectionPath = path.slice(2, path.length);
 			return sectionPath.join('/');
 		}
-		return 'about/';
+		return 'about';
 	};
 
 	const toggleMenu = () => {
@@ -102,7 +102,7 @@
 
 			&.active {
 				font-weight: 800;
-				text-decoration: underline;
+				color: rgb(255 255 255 / 36%);
 			}
 		}
 	}

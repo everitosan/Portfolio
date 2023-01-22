@@ -1,5 +1,6 @@
 <script>
 	import Header from "ui/lib/Header.svelte"
+	import Logo from "ui/lib/Logo.svelte"
 	import Menu from "$lib/Menu.svelte"
 
 	import './styles.css';
@@ -14,6 +15,9 @@
 
 <div class="app">
 	<Header>
+		<a slot="left" href="/">
+			<Logo></Logo>
+		</a>
 		<Menu slot="right" ></Menu>
 	</Header>
 
@@ -34,6 +38,12 @@
 		margin: 0 auto;
 		max-width:  breakpoints.$xl;
 		padding: utils.sizing(4) utils.sizing(6);
+	}
+
+	.app {
+		a {
+			text-decoration: none;
+		}
 	}
 
 	@media screen and (max-width: breakpoints.$md) {

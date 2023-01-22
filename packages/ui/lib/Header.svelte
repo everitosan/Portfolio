@@ -1,7 +1,8 @@
 <header class="Header" >
   <div></div>
   <div class="Header__content">
-    <div class="logo">
+    <div class="left">
+        <slot name="left" ></slot>
     </div>
     <div class="diagonal">
       <div class="diagonal__content">
@@ -51,7 +52,9 @@
         color: colors.$white;
       }
     }
-    
+    .left {
+      padding-left: utils.sizing(6);
+    }
     .right { 
       border-bottom: 1px solid colors.$white;
       justify-content: flex-end;
@@ -65,6 +68,10 @@
 
   @media screen and (max-width: breakpoints.$md) {
     .Header__content {
+      grid-template-columns: 1fr 0.1fr 0.2fr;
+      .left {
+        padding-left: utils.sizing(2);
+      }
       .right {
         padding-right: utils.sizing(2);
       }
