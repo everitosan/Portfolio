@@ -13,6 +13,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@types/marked": "^4.0.8",
     "eslint-config-custom": "*",
     "prettier": "latest",
     "turbo": "latest"
@@ -24,7 +25,6 @@
     "@fontsource/orbitron": "^4.5.11",
     "@fontsource/saira-condensed": "^4.5.9",
     "@fontsource/share-tech-mono": "^4.5.9",
-    "marked": "^4.2.12",
     "yaml": "^2.2.1"
   },
   "packageManager": "npm@8.19.1"

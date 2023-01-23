@@ -9,8 +9,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.57.1"
+  },
   "dependencies": {
     "colorjs.io": "^0.4.2",
-    "sass": "^1.57.1"
+    "marked": "^4.2.12"
   }
 }

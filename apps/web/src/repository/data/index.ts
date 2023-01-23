@@ -1,4 +1,4 @@
-import type { ExperienceData, ProjectData, AboutData } from "types/entities"
+import type { ExperienceData, ProjectData, AboutData, ManifestData } from "types/entities"
 import type { Lang } from "types/lang"
 import { parse } from "yaml"
 
@@ -21,6 +21,11 @@ export class DataRepository {
 
   getProjects = async (lang: Lang): Promise<ProjectData> => {
     return await this.get(`${baseApi}/projects-${lang}.yml`) as ProjectData
+  }
+
+  getManifest = async(lang: Lang): Promise<ManifestData> => {
+    return await this.get(`${baseApi}/manifest-${lang}.yml`) as ManifestData
+
   }
 
   private get = async(url: string) => {

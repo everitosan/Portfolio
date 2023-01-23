@@ -4,6 +4,15 @@ type HeadData = {
 }
 
 /*
+ * Manifest types
+ */
+
+export type ManifestData = {
+  head: HeadData
+  content: string
+}
+
+/*
  * About types
  */
 

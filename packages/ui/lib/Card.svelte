@@ -40,8 +40,15 @@
   @use "../Styles/typography";
   @use "../Styles/breakpoints";
 
+  @mixin bg {
+    background: rgba(45, 45, 65, 0.9);
+    // background: var(--card-background);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
   @mixin top-bottom {
-    background: var(--card-background);
+    @include bg;
     height: 16px;
     overflow: hidden;
   }
@@ -67,7 +74,8 @@
   }
 
   .Card__main {
-    background: var(--card-background);
+    @include bg;
+
     display: grid;
     grid-template-columns: 8px 1fr;
     
@@ -146,6 +154,7 @@
     }
     &::-webkit-scrollbar-track {
       background: colors.$gray-opaque;
+      // background: rgba(255, 255, 255, 0.2);
     }
 
     &--primary{

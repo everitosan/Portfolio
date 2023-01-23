@@ -1,7 +1,8 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types'
 import { DataRepository } from "../../../repository/data"
-import type { Lang, ExperienceData } from "../../../repository/data/types"
+import type { Lang } from "types/lang"
+import type { ExperienceData } from "types/entities"
 
 export const prerender = true
 
