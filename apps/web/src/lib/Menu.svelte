@@ -1,20 +1,36 @@
 <script lang="ts">
-	import MenuItem from 'ui/lib/MenuItem.svelte';
-	import Icon from 'ui/lib/Icon.svelte';
-	import { page } from '$app/stores';
+	import MenuItem from 'ui/lib/MenuItem.svelte'
+	import { DEFAULT_LANG, detectLang } from './lang'
+	import { onMount } from 'svelte'
 
-	let lang = 'en';
-	let section = '';
-	let mobileToggle = true;
+	import Icon from 'ui/lib/Icon.svelte'
+	import { page } from '$app/stores'
+
+	let lang = DEFAULT_LANG
+	let section = ''
+	let mobileToggle = true
+	let isMounted = false
+
+	onMount(() => {
+		lang = detectLang()
+		isMounted = true
+	})
 
 	$: {
-		lang = getLang($page.params.lang);
-		section = getSection($page.url.pathname);
+		// This code runs on every re-location of sveltekit router
+		lang = getLang($page.params.lang)
+		section = getSection($page.url.pathname)
 		mobileToggle = false
 	}
 
 	const getLang = (lng: string | undefined): string => {
-		return lng ? lng : 'en';
+		if (lng === undefined) {
+			if (isMounted) {
+				return detectLang()
+			} 
+			return DEFAULT_LANG
+		}
+		return lng
 	};
 
 	const getSection = (pathname: string): string => {
@@ -95,14 +111,16 @@
 	.Menu__lang {
 		@include typography.small-text;
 		display: flex;
+		color: rgb(255 255 255 / 36%);
 		grid-column-gap: utils.sizing(0.5);
+
 		a {
-			color: colors.$white;
+			color: rgb(255 255 255 / 36%);
+			font-weight: 800;
 			text-decoration: none;
 
 			&.active {
-				font-weight: 800;
-				color: rgb(255 255 255 / 36%);
+				color: colors.$white;
 			}
 		}
 	}

@@ -1,0 +1,9 @@
+{
+  "name": "types",
+  "version": "1.0.0",
+  "description": "types to be shared in apps and packages",
+  "main": "index.js",
+  "private": true,
+  "author": "",
+  "license": "ISC"
+}

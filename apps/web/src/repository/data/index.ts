@@ -1,4 +1,5 @@
-import type { Lang, ExperienceData, ProjectData, AboutData } from "./types"
+import type { ExperienceData, ProjectData, AboutData } from "types/entities"
+import type { Lang } from "types/lang"
 import { parse } from "yaml"
 
 const baseApi = import.meta.env.MODE === "development" ? "/data" : "https://evesan.rocks/data"

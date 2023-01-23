@@ -1,5 +1,3 @@
-export type Lang =  "es" | "en"
-
 type HeadData = {
   title: string
   description: string
