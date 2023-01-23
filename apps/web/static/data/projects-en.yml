@@ -4,17 +4,46 @@ head:
 title: Projects
 categories:
 - name: Open Source
-  color: "#6B03EF"
+  color: "#5c46c8"
   projects:
+  - name: Sniim
+    url: https://github.com/everitosan/sniim-scrapper
+    description: Scraper para obtener los datos de precios sobre algunos productos como frutos y carnes en México.
   - name: Averto
     url: https://gitlab.com/opensource13/averto
-    description: A webserver for webhooks written in go.
+    description: Servidor web para recibir webhook escrito en go lang.
+  - name: Reen
+    url: https://github.com/everitosan/Reen
+    description: Herramienta de backup basada en rsync para linux.
   - name: Dziro
     url: https://dziro.app
-    description: Manage your online wishes
+    description: Organiza tus compras online.
+  - name: Blueprint
+    url: https://www.npmjs.com/package/svelte-blueprint
+    description: Construye documentación de tus componentes en svelte.
+  - name: HttpPy
+    url: https://pypi.org/project/HttpPy/
+    description: Cliente de peticiones Http basado en Python.
+  
 - name: Sable
-  color: "#000000"
+  color: "#EF6603"
   projects:
   - name: JpDeBotton
-    url: "https://www.behance.net/gallery/122540875/Education-web-platform"
-    description: "Plataforma de educación en línea"
+    url: https://www.behance.net/gallery/122540875/Education-web-platform
+    description: Plataforma de educación en línea.
+  - name: BID
+    url: https://www.sable.mx/detalle/web-platform-bid
+    description: Brochure interactivo para reporte anual del BID.
+  - name: Jetro
+    url: https://www.sable.mx/detalle/web-platform-jetro
+    description: Mapa interactivo de parues industriales.
+
+- name: Collabs
+  color: "#EF0391"
+  projects:
+  - name: Locobeat
+    url: https://www.youtube.com/watch?v=dw2YGGgV4nU
+    description: Proyecto interactivo y multidisciplinario de animación, mapping, código y hardware.
+  - name: One Dollar
+    url: https://vimeo.com/126628949
+    description: Dinámica sin fines de lucro para apoyar a longboarders promesa en mesa de las tablas, arteaga Coahuila.
