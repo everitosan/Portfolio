@@ -4,7 +4,7 @@ head:
 title: Proyectos
 categories:
 - name: Código abierto
-  color: "#eaff00"
+  color: "#5c46c8"
   projects:
   - name: Sniim
     url: https://github.com/everitosan/sniim-scrapper
@@ -26,7 +26,7 @@ categories:
     description: Cliente de peticiones Http basado en Python.
   
 - name: Sable
-  color: "#9500ff"
+  color: "#EF6603"
   projects:
   - name: JpDeBotton
     url: https://www.behance.net/gallery/122540875/Education-web-platform
@@ -39,11 +39,15 @@ categories:
     description: Mapa interactivo de parues industriales.
 
 - name: Colaboraciones
-  color: "#839478"
+  # color: "#839478"
+  # color: "#c84646"
+  # color: "#5c46c8"
+  # color: "#6B03EF"
+  color: "#EF0391"
   projects:
   - name: Locobeat
     url: https://www.youtube.com/watch?v=dw2YGGgV4nU
     description: Proyecto interactivo y multidisciplinario de animación, mapping, código y hardware.
-  - name: OneDollarItem
+  - name: One Dollar
     url: https://vimeo.com/126628949
     description: Dinámica sin fines de lucro para apoyar a longboarders promesa en mesa de las tablas, arteaga Coahuila.

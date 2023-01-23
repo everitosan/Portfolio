@@ -34,6 +34,7 @@
 <style lang="scss" >
 	@use "ui/Styles/utils";
   @use "ui/Styles/typography";
+  @use "ui/Styles/breakpoints";
 
 	.title__wrapper {
 		margin: utils.sizing(6) 0;
@@ -49,5 +50,12 @@
     grid-column-gap: utils.sizing(4);
     grid-row-gap: utils.sizing(4);
     padding: 0 utils.sizing(2);
+  }
+
+  @media screen and (max-width: breakpoints.$md) {
+    .projects {
+      justify-content: center;
+      grid-column-gap: utils.sizing(2);
+    }
   }
 </style>

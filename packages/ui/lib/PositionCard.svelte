@@ -184,6 +184,7 @@
           :global(h3) {
             @include typography.title-text;
             font-size: 16px;
+            font-weight: 100;
           }
         }
       }
