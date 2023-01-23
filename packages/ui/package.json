@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "colorjs.io": "^0.4.2",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "svelte-markdown": "^0.2.3"
   }
 }

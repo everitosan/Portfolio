@@ -23,12 +23,11 @@
 <Card variant="secondary">
   <div class="positions">
     {#each data.positions as position}
-      <PositionCard color={position.color} >
+      <PositionCard description={position.description} color={position.color} >
         <img alt={position.company} src={position.logo} slot="image" />
         <div slot="title"> {position.position} </div>
         <span slot="lapse" > {position.lapse} </span>
         <div slot="company" > {position.company} </div>
-        <div slot="description" > {position.description} </div>
       </PositionCard>
   {/each}
   </div>

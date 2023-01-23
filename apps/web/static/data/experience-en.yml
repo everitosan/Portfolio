@@ -8,11 +8,17 @@ positions:
   company: Frog
   position: Sr Design Technologist
   lapse: 2022-2023
-  description: You think water moves fast? You should see ice. It moves like it
-    has a mind. Like it knows it killed the world once and got a taste for murder.
-    After the avalanche, it took us a week to climb out. Now, I don’t know exactly
-    when we turned on each other, but I know that seven of us survived the slide…
-    and only five made it out. Now we took an oath, that I’m breaking now.
+  description: |
+    Como [Design Technologist](https://indeed.design/article/what-is-a-design-technologist) colaboré remotamente durante 1 año con el estudio de diseño [Frog México](https://www.frog.co/studio/mexico-city). Mis principales actividades fueron:
+    - Diseño y transferencia de conocimiento sobre [Sistemas de Diseño (DLS)](https://yujdesigns.medium.com/design-language-system-why-you-need-it-51cf34ecada5) a cliente internacional.
+    - Diseño de herramienta de sustentabilidad tecnológica como proyecto interno de inovación.
+    - Programación de juego mobile como trabajo de exploración interna.
+  
+    ### Tecnologías usadas
+
+    - **Lenguajes**: Typescript, Html Css
+    - **Frameworks**: React, React Native, Angular
+    - **Tools**: Storybook, Turborepo, MacOs, Windows
 - logo: "/img/SAT.png"
   color: "#037EEF"
   company: SAT

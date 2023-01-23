@@ -8,4 +8,68 @@ positions:
   company: Frog
   position: Sr Design Technologist
   lapse: 2022-2023
-  description: En realidad no me encantó este trabajo.
+  description: |
+    Como [Design Technologist](https://indeed.design/article/what-is-a-design-technologist) colaboré remotamente durante 1 año con el estudio de diseño [Frog México](https://www.frog.co/studio/mexico-city). Las principales actividades fueron:
+
+    - Diseño y transferencia de conocimiento sobre [Sistemas de Diseño (DLS)](https://yujdesigns.medium.com/design-language-system-why-you-need-it-51cf34ecada5) a cliente internacional
+    - Diseño de herramienta de sustentabilidad tecnológica como proyecto interno de inovación
+    - Programación de juego mobile como trabajo de exploración interna
+
+    ### Tecnologías usadas: 
+    - **Lenguajes**: Typescript, Html, Css
+    - **Frameworks & bibliotecas**: React, React Native, Angular, Sass
+    - **Herramientas**: Github, Storybook, Docker, Turborepo, macOS, Windows
+- logo: "/img/SAT.png"
+  color: "#037EEF"
+  company: SAT
+  position: Sr Software Developer
+  lapse: 2019-2022
+  description: |
+    Mi colaboración con el [Servicio de Administración Tributaria](https://www.sat.gob.mx/home) se compone de 1 año de forma presencial y 2 de forma remota. 
+    Las principales actividades fueron:
+
+    - Diseño, desarrollo y mantenimiento de aplicativos para contribuyentes a nivel nacional
+    - Diseño, desarrollo y mantenimiento de aplicativos de uso interno a nivel nacional
+    - Diseño y desarrollo de clientes eficientes para escritorio multiplataforma
+    - Administración de servidores y aplicaciones en servidores linux
+    - Despliegue de aplicativos web en servicios de nube (IASS)
+    - Transferencia de conocimiento sobre DevOps
+
+    ### Tecnologías usadas: 
+    - **Lenguajes**: Rust lang, Python, Typescript, Html, Css
+    - **Frameworks & bibliotecas**: Actix web, Django, Flask, Svelte, React, React Native, Sass
+    - **Herramientas**: Nginx, Github, Gitlab, Gitlab-CI, Taiga, Kubernetes, Selenium, LXD, Docker, Linux, Windows
+    - **Bases de datos**: SQLite, Postgres, Mysql, MongoDB
+
+- logo: "/img/Runa.svg"
+  color: "#923eed"
+  company: Runa
+  position: Sr Frontend
+  lapse: 2018-2019
+  description: |
+    Durante 3 meses colaboré con [Runa](https://runahr.com/mx/home/) en la siguientes actividades:
+
+    - Colaboración con equipo internacional (inglés) para la integración de reportes en plataforma web
+    - Mantenimiento de componentes y código de terceros para la plataforma
+
+    ### Tecnologías usadas: 
+    - **Lenguajes**: Javascript, Html, Css
+    - **Frameworks & bibliotecas**:  React, immutable-js, Sass
+    - **Herramientas**: Github, macOS
+- logo: "/img/Sable.svg"
+  color: "#000000"
+  company: Sable
+  position: Tech collaborator
+  lapse: 2014-2018
+  description: |
+    Durante 4 años colaboré en la parte tecnológica de forma asíncrona y remota con el estudio [Sable](https://www.sable.mx) en diversos proyectos para diferentes clientes.  Mis responsabilidades principales fueron:
+
+    - Decisión sobre las herramientas tecnologicas para cada proyecto asignado
+    - Proyección de tiempos, revisiones con el estudio y entregas con cliente
+    - Desarrollo de código para los proyectos
+
+    ### Tecnologías usadas: 
+    - **Lenguajes**: Python, Php, Ruby, Javascript, Html, Css
+    - **Frameworks & bibliotecas**:  Apache Server, Nginx, Aws, NodeJs, RubyOnRails, Laravel, Django, React, Angular Js(1.4), Sass
+    - **Herramientas**: Github, macOS
+    - **Bases de datos**: Postgres, Mysql

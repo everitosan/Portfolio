@@ -22,7 +22,7 @@
 
 <Card variant="tertiary">
   {#each data.categories as category}
-    <h2 class="category__name" > {category.name} </h2>
+    <h2 class="category__name" > ░ {category.name} </h2>
     <div class="projects">
       {#each category.projects as project}
         <ProjectCard data={project} color={category.color} />
@@ -47,6 +47,7 @@
     display: flex;
     flex-wrap: wrap;
     grid-column-gap: utils.sizing(4);
+    grid-row-gap: utils.sizing(4);
     padding: 0 utils.sizing(2);
   }
 </style>

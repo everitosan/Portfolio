@@ -1,5 +1,16 @@
 <script lang="ts">
+  import { marked } from 'marked'
+
   export let color: string = "red"
+  export let description: string = ""
+
+  const renderer = {
+    link(href: string, title: string, text: string) {
+      return `<a target="_blank" rel="noreferrer" href="${href}" >${text}</a>`
+    }
+  }
+  marked.use({renderer})
+
 </script>
 
 <div class="PositionCard" >
@@ -30,7 +41,7 @@
         </div>
 
         <div class="PositionCard__main__detail__text__description" style={`background: ${color}24; `}>
-          <slot name="description"></slot>
+          {@html marked.parse(description)}
         </div>
 
       </div>
@@ -47,6 +58,7 @@
 <style lang="scss" >
   @use "../Styles/breakpoints";
   @use "../Styles/typography";
+  @use "../Styles/colors";
   @use "../Styles/utils";
 
   $border-radius: 3px;
@@ -150,7 +162,29 @@
 
         &__description {
           @include typography.regular-text;
-          padding: utils.sizing(1);
+
+          box-sizing: border-box;
+          overflow: hidden;
+          padding: utils.sizing(1) utils.sizing(2);
+          transition: all 0.3s;
+          
+          :global(p) {
+            margin: 0;
+            color: colors.$white;
+          }
+
+          :global(a) {
+            color: inherit;
+            opacity: 0.6;
+            &:hover {
+              opacity: 1;
+            }
+          }
+
+          :global(h3) {
+            @include typography.title-text;
+            font-size: 16px;
+          }
         }
       }
 

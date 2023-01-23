@@ -24,6 +24,7 @@
     "@fontsource/orbitron": "^4.5.11",
     "@fontsource/saira-condensed": "^4.5.9",
     "@fontsource/share-tech-mono": "^4.5.9",
+    "marked": "^4.2.12",
     "yaml": "^2.2.1"
   },
   "packageManager": "npm@8.19.1"

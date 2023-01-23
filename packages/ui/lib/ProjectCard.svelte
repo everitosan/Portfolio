@@ -32,7 +32,7 @@
       <path d="M0 265.059V0.518494H193.333L200 7.03427V117.528L186.667 130.56V282H17.3333L0 265.059Z" fill={baseColor}/>
       <path fill-rule="evenodd" clip-rule="evenodd" fill={darkColor} d="M7.40741 6.19135H6.90741V6.69135V257.309V257.516L7.05386 257.662L23.1032 273.712L23.2497 273.858H23.4568H180.247H180.747V273.358V125.417L192.946 113.218L193.093 113.071V112.864V12.8642V12.6571L192.946 12.5106L186.773 6.33779L186.627 6.19135H186.42H7.40741ZM7.90741 225.21V7.19135H186.213L192.093 13.0713V112.657L179.893 124.856L179.747 125.003V125.21V225.21H32.0988V230.148H9.87654V225.21H7.90741ZM7.90741 244.963V252.37H17.284V244.963H7.90741Z"/>
       <text class="initialL" font-family="Hacked" font-size="150px"  x="50%" y="60%" text-anchor="middle" style={`fill: ${initialLetterColor};`} > {data.name.substring(0, 1)} </text>  
-      <text font-family="Saira Condensed" font-size="40px"  x="50%" y="94%" text-anchor="middle" style="fill: #fff;" > {data.name} </text>  
+      <text font-family="Saira Condensed" font-size="36px"  x="50%" y="94%" text-anchor="middle" style="fill: #fff;" > {data.name} </text>  
     </svg>
   </a>  
 </div>

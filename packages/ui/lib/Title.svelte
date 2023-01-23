@@ -1,12 +1,13 @@
 <script lang="ts">
-  export let variant : "primary" | "secondary" | "tertiary";
+  export let variant : "primary" | "secondary" | "tertiary"
+  export let animated = true
 </script>
 
 <div class="Title">
   <div class={`Title__comment Title__comment--${variant}`}></div>
   <div class={`Title__comment Title__comment--${variant}`}></div>
   
-  <div class='Title__text'>
+  <div class='Title__text' class:animated={animated} >
     <h1 class={`Title__text--normal Title__text--normal--${variant}`}>
       <slot></slot>
     </h1>
@@ -59,7 +60,6 @@
     padding-left: utils.sizing(1.5);
     margin: 0;
     position: relative;
-
 
     &--normal {
       font-size: var(--title-font-size);
