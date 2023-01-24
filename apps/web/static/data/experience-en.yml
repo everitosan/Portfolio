@@ -20,7 +20,7 @@ positions:
     - **Frameworks & libraries**: React, React Native, Angular, Sass
     - **Tools**: Github, Storybook, Docker, Turborepo, macOS, Windows
 
-- logo: "/img/SAT.png"
+- logo: "/img/SAT.svg"
   color: "#037EEF"
   company: SAT
   position: Sr Software Developer
@@ -58,7 +58,7 @@ positions:
 - logo: "/img/Sable.svg"
   color: "#000000"
   company: Sable
-  position: Tech collaborator
+  position: Sr Tech collaborator
   lapse: 2014-2018
   description: |
     For four years, I collaborated asynchronously and remotely in the technological part with [Sable](https://www.sable.mx) studio in various projects for different clients. My principal responsibilities were:
@@ -72,3 +72,18 @@ positions:
     - **Frameworks & libraries**: Apache Server, Nginx, Aws, NodeJs, RubyOnRails, Laravel, Django, React, Angular Js(1.4), Sass
     - **Tools**: Github, macOS
     - **Databases**: Postgres, Mysql
+- logo: "/img/Adesis.svg"
+  color: "#e67703"
+  company: Adesis
+  position: Sr Frontend
+  lapse: 2014-2015
+  description: |
+    For three months, I collaborated with [Adesis](https://www.adesis.com/) building an online banking platform focused on SMEs for BBVA. My main responsibilities are summarized in:
+
+    - Improvement, maintenance, and creation of components with angular 1.14
+    - Front code maintenance with JQuery
+
+    ### Technologies:
+    - **Languages**: Python, Php, Ruby, Javascript, Html, Css
+    - **Frameworks & libraries**: NodeJs, Angular Js(1.4), Sass
+    - **Tools**: Github, macOS

@@ -11,23 +11,25 @@ categories:
     description: Scraper para obtener los datos de precios sobre algunos productos como frutos y carnes en México.
   - name: Averto
     url: https://gitlab.com/opensource13/averto
-    description: Servidor web para recibir webhook escrito en go lang.
+    description: Servidor web para recibir webhooks escrito en go lang.
   - name: Reen
     url: https://github.com/everitosan/Reen
     description: Herramienta de backup basada en rsync para linux.
   - name: Dziro
     url: https://dziro.app
-    description: Organiza tus compras online.
+    description: Andrministra tus whishlists online.
   - name: Blueprint
     url: https://www.npmjs.com/package/svelte-blueprint
-    description: Construye documentación de tus componentes en svelte.
+    description: Construye la documentación de tus componentes en svelte.
   - name: HttpPy
     url: https://pypi.org/project/HttpPy/
     description: Cliente de peticiones Http basado en Python.
   - name: Dslr Remote
     url: https://github.com/everitosan/DSLRemote
-    description: Integral project to enable remote shooting in old Dslr.
-  
+    description: Proyecto integral para disparos remotos en cámaras Dslr antiguas.
+  - name: Reports
+    url: https://everitosan.github.io/ReportGenerator/
+    description: Generador de reportes para servicio social con formatos de ESIME Culhuacán del IPN.
 - name: Sable
   color: "#EF6603"
   projects:

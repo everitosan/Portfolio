@@ -6,7 +6,7 @@ positions:
 - logo: "/img/frog.svg"
   color: "#03EF7E"
   company: Frog
-  position: Sr Design Technologist
+  position: Tecnólogo de diseño Senior
   lapse: 2022-2023
   description: |
     Como [Design Technologist](https://indeed.design/article/what-is-a-design-technologist) colaboré remotamente durante 1 año con el estudio de diseño [Frog México](https://www.frog.co/studio/mexico-city). Las principales actividades fueron:
@@ -19,10 +19,10 @@ positions:
     - **Lenguajes**: Typescript, Html, Css
     - **Frameworks & bibliotecas**: React, React Native, Angular, Sass
     - **Herramientas**: Github, Storybook, Docker, Turborepo, macOS, Windows
-- logo: "/img/SAT.png"
+- logo: "/img/SAT.svg"
   color: "#037EEF"
   company: SAT
-  position: Sr Software Developer
+  position: Ingeniero en software Senior
   lapse: 2019-2022
   description: |
     Mi colaboración con el [Servicio de Administración Tributaria](https://www.sat.gob.mx/home) se compone de 1 año de forma presencial y 2 de forma remota. 
@@ -44,7 +44,7 @@ positions:
 - logo: "/img/Runa.svg"
   color: "#923eed"
   company: Runa
-  position: Sr Frontend
+  position: Frontend Senior
   lapse: 2018-2019
   description: |
     Durante 3 meses colaboré con [Runa](https://runahr.com/mx/home/) en la siguientes actividades:
@@ -59,7 +59,7 @@ positions:
 - logo: "/img/Sable.svg"
   color: "#000000"
   company: Sable
-  position: Tech collaborator
+  position: Colaborador en tecnología
   lapse: 2014-2018
   description: |
     Durante 4 años colaboré en la parte tecnológica de forma asíncrona y remota con el estudio [Sable](https://www.sable.mx) en diversos proyectos para diferentes clientes.  Mis responsabilidades principales fueron:
@@ -73,3 +73,18 @@ positions:
     - **Frameworks & bibliotecas**:  Apache Server, Nginx, Aws, NodeJs, RubyOnRails, Laravel, Django, React, Angular Js(1.4), Sass
     - **Herramientas**: Github, macOS
     - **Bases de datos**: Postgres, Mysql
+- logo: "/img/Adesis.svg"
+  color: "#e67703"
+  company: Adesis
+  position: Frontend Senior
+  lapse: 2014-2015
+  description: |
+    Durante tres meses colaboré con [Adesis](https://www.adesis.com/) construyendo una plataforma de banca en línea enfocada a pymes para BBVA. Mis principales responsabilidades se resumen en:
+
+    - Mejora, mantenimiento y creación de componentes con angular 1.14
+    - Mantenimiento de código front con JQuery
+
+    ### Tecnologías usadas:
+    - **Lenguajes**: Python, Php, Ruby, Javascript, Html, Css
+    - **Frameworks & bibliotecas**: NodeJs, Angular Js(1.4), Sass
+    - **Herramientas**: Github, macOS
