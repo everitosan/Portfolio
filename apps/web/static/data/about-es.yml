@@ -2,7 +2,9 @@ head:
   title: Acerca de
   description: Puedes llamarme Evesan
 title: Acerca de
-content:
-  - No estoy conforme con la desigualdad del status Quo, las sonrisas falsas, la comodidad e indiferencia. No estoy conforme con la modernidad. Ser punk es ir en contra de la normalidad, acompañado de filosofía y ganas de cambiar lo establecido. Cuestionar por qué hacemos, compramos, queremos. Resistirse a la corriente cotidiana y pop. Es morir en la raya con la moral más viva. 
-  - Ser cyber es aprovechar las herramientas y la tecnología para un futuro no distópico. Es aprender y reinventarse cada día con inteligencia y valentía. No me identifico con los intereses del mercado, ni con la idea de perpetuar la desigualdad, la marginación y la disparidad de salarios, ni de que pienses que la vida es mejor sin sufrimiento.
-  - Puedes llamarme Evesan.
+content: |
+  Soy ingeniero en comunicaciones y electrónica con más de 10 años de experiencia en el desarrollo de software. La mayor parte de mi experiencia se centra en entornos web, sin embargo también he realizado proyectos de aplicaciones nativas para android, microcontroladores, clientes de escritorio multiplataforma y scripting. Actualmente cuento con las certificaciones [Azure Fundamentals (AZ-900)](https://www.credly.com/badges/2a4ea5ef-e9fe-45a8-828d-7f3fe624e14e/public_url), [Certified Kubernetes Application Developer](https://www.credly.com/badges/a2879a49-9640-4e23-bf6a-b5ddc9b5013c) y me encuentro en curso de obtener la [Green Software for Practitioners (LFC131)](https://learn.greensoftware.foundation/).  
+
+  Mi interés se centra en el código abierto y la solución a problemas de gran impacto social y organizacional así como la automatización de procesos y mejora de servicios.  
+
+  Quiero ayudar a crear un mundo mejor pero no solo para quienes ya cuentan con privilegios y tecnología, si no también para quienes nacen, crecen y viven las condiciones más desfavorables del mundo moderno.  

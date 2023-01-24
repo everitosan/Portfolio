@@ -1,14 +1,10 @@
 <script lang="ts">
   import { marked } from "marked"
+  import { renderer } from "../utils/md-renderer"
 
   export let color: string = "red"
   export let description: string = ""
 
-  const renderer = {
-    link(href: string, title: string, text: string) {
-      return `<a target="_blank" rel="noreferrer" href="${href}" >${text}</a>`
-    }
-  }
   marked.use({renderer})
 
 </script>

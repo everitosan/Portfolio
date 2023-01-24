@@ -2,8 +2,12 @@
 	import type { PageData } from "./$types"
 	import Title from "ui/lib/Title.svelte"
 	import Card from "ui/lib/Card.svelte"
+  import { marked } from "marked"
+	import { renderer } from "ui/utils/md-renderer"
 
 	export let data: PageData
+
+	marked.use({renderer})
 </script>
 
 <svelte:head>
@@ -18,10 +22,7 @@
 </div>
 
 <Card variant="primary">
-	{#each data.content as paragraph }
-		<p> {paragraph} </p>
-	{/each}
-
+	{@html marked.parse(data.content)}
 </Card>
 
 <style lang="scss" >

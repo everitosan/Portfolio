@@ -127,6 +127,14 @@
         padding: 0 utils.sizing(1);
         overflow-y: scroll;
       }
+
+      :global(a) {
+        color: inherit;
+        opacity: 0.6;
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
   }
 

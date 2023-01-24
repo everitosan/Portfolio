@@ -2,7 +2,9 @@ head:
   title: About
   description: My name is Everardo
 title: About me
-content:
-  - I am not satisfied with the inequality of the status quo, fake smiles, comfort and indifference. I am not satisfied with modernity. To be punk is to go against normality, accompanied by philosophy and desire to change the established. Question why we do, buy, want. Resist the everyday rutine and pop culture. Dying on the line with the most vivid morality. 
-  - To be cyber is to leverage tools and technology for a non-dystopian future. It is learning and reinventing yourself every day with intelligence and courage. I don't identify with the interests of the market, or with the idea of perpetuating inequality, marginalization and wage disparity, or thinking that life is better without suffering. 
-  - You can call me Evesan.
+content: |
+  I am a communications and electronics engineer with more than ten years of experience in software development. Most of my experience is focused on web environments, however, I have also done native android applications, microcontrollers, cross-platform desktop clients and scripting projects. Currently, I have achieved the [Azure Fundamentals (AZ-900)](https://www.credly.com/badges/2a4ea5ef-e9fe-45a8-828d-7f3fe624e14e/public_url)and [Certified Kubernetes Application Developer](https://www.credly.com/badges/a2879a49-9640-4e23-bf6a-b5ddc9b5013c) certifications and my next objective it the [Green Software for Practitioners (LFC131)](https://learn.greensoftware.foundation/). 
+
+  My interest is focused in open source solutions to problems of social relevance and organizational impact, as well as the automation of processes and improvement of services.
+
+  I want to help to create a better world, not only for those who already have privilege and technology but also for those who are born, grow up and live in the most unfavorable conditions of the modern world.

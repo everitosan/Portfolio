@@ -19,7 +19,7 @@ export type ManifestData = {
 export type AboutData = {
   head: HeadData
   title: string
-  content: string[]
+  content: string
 }
 
 /*
