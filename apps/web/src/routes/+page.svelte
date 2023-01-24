@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/stores'
+
 	import { onMount } from 'svelte'
 	import { detectLang } from '$lib/lang'
 	import type { PageData } from './$types'
@@ -21,7 +23,7 @@
 				typeSpeed: 20,
 				smartBackspace: false
 			};
-			var typed = new Typed('.manifest__content', options);
+			new Typed('.manifest__content', options);
 		}
 	});
 </script>
@@ -30,6 +32,26 @@
 	{#if manifestData}
 		<title>{manifestData.head.title}</title>
 		<meta name="description" content={manifestData.head.description} />
+
+		<meta name="title" property="og:title" content={`${manifestData.head.description}`} />
+		<meta name="type" property="og:type" content="website" />
+		<meta name="url" property="og:url" content={`https://www.evesan.rocks/${$page.params.lang}/`} />
+	
+		<meta name="twitter:creator" content="@everitosan" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={`${manifestData.head.description}`} />
+	{:else}
+		<title>{data.langs[0].data.head.title}</title>
+		<meta name="description" content={data.langs[0].data.head.description} />
+
+		<meta name="title" property="og:title" content={`${data.langs[0].data.head.description}`} />
+		<meta name="type" property="og:type" content="website" />
+		<meta name="url" property="og:url" content={`https://www.evesan.rocks/${$page.params.lang}/`} />
+	
+		<meta name="twitter:creator" content="@everitosan" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={`${data.langs[0].data.head.description}`} />
+
 	{/if}
 </svelte:head>
 
@@ -43,7 +65,7 @@
 	@use 'ui/Styles/typography';
 	@use 'ui/Styles/breakpoints';
 	.manifest {
-		padding-top: 25vh;
+		padding-top: 20vh;
 		&__content {
 			@include typography.regular-text;
 

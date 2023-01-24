@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from '$app/stores'
   import type { PageData } from "./$types"
 
   import Title from "ui/lib/Title.svelte"
@@ -11,6 +12,15 @@
 <svelte:head>
   <title> { data.head.title } </title>
 	<meta name="description" content={data.head.description} >
+
+  <meta name="title" property="og:title" content={`${data.head.description}`} />
+	<meta name="type" property="og:type" content="website" />
+	<meta name="url" property="og:url" content={`https://www.evesan.rocks/${$page.params.lang}/path/`} />
+
+	<meta name="twitter:creator" content="@everitosan" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={`${data.head.description}`} />
+
 </svelte:head>
 
 <div class="title__wrapper">
