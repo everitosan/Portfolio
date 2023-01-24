@@ -16,7 +16,6 @@
 		const found = data.langs.filter((part) => part.lang === lang);
 		if (found.length > 0) {
 			manifestData = found[0].data
-			console.log(manifestData)
 			let options = {
 				strings: [marked.parse(manifestData.content)],
 				typeSpeed: 20,
@@ -56,8 +55,11 @@
 
 			:global(h1) {
 				@include typography.title-text;
-			}
-			
+			}	
+		}
+
+		:global(.typed-cursor) {
+			display: none;
 		}
 	}
 	@media screen and (max-width: breakpoints.$md) {

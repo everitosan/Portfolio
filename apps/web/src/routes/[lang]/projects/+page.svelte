@@ -47,7 +47,7 @@
   .projects {
     display: flex;
     flex-wrap: wrap;
-    grid-column-gap: utils.sizing(4);
+    grid-column-gap: utils.sizing(3);
     grid-row-gap: utils.sizing(4);
     padding: 0 utils.sizing(2);
   }

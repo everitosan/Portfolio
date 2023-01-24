@@ -24,6 +24,9 @@ categories:
   - name: HttpPy
     url: https://pypi.org/project/HttpPy/
     description: Cliente de peticiones Http basado en Python.
+  - name: Dslr Remote
+    url: https://github.com/everitosan/DSLRemote
+    description: Integral project to enable remote shooting in old Dslr.
   
 - name: Sable
   color: "#EF6603"
@@ -33,16 +36,12 @@ categories:
     description: Plataforma de educación en línea.
   - name: BID
     url: https://www.sable.mx/detalle/web-platform-bid
-    description: Brochure interactivo para reporte anual del BID.
+    description: Brochure interactivo para reporte anual del Banco Interamericano de Desarrollo.
   - name: Jetro
     url: https://www.sable.mx/detalle/web-platform-jetro
-    description: Mapa interactivo de parues industriales.
+    description: Mapa interactivo de parques industriales.
 
 - name: Colaboraciones
-  # color: "#839478"
-  # color: "#c84646"
-  # color: "#5c46c8"
-  # color: "#6B03EF"
   color: "#EF0391"
   projects:
   - name: Locobeat
@@ -51,3 +50,8 @@ categories:
   - name: One Dollar
     url: https://vimeo.com/126628949
     description: Dinámica sin fines de lucro para apoyar a longboarders promesa en mesa de las tablas, arteaga Coahuila.
+
+# color: "#839478"
+# color: "#c84646"
+# color: "#5c46c8"
+# color: "#6B03EF"
