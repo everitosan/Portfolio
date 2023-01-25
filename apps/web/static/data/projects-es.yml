@@ -18,6 +18,9 @@ categories:
   - name: Dziro
     url: https://dziro.app
     description: Andrministra tus whishlists online.
+  - name: R3
+    url: https://gitlab.com/opensource13/r3/app
+    description: Aplicación de recordatorios desde la terminal.
   - name: Blueprint
     url: https://www.npmjs.com/package/svelte-blueprint
     description: Construye la documentación de tus componentes en svelte.

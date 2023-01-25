@@ -8,7 +8,7 @@ categories:
   projects:
   - name: Sniim
     url: https://github.com/everitosan/sniim-scrapper
-    description: Scraper  to obtain prices of some products as fruits and meat in México.
+    description: Scraper to obtain prices of some products as fruits and meat in México.
   - name: Averto
     url: https://gitlab.com/opensource13/averto
     description: A webserver for webhooks written in go lang.
@@ -18,6 +18,9 @@ categories:
   - name: Dziro
     url: https://dziro.app
     description: Manage your online whishlists.
+  - name: R3
+    url: https://gitlab.com/opensource13/r3/app
+    description: Reminder application for terminal.
   - name: Blueprint
     url: https://www.npmjs.com/package/svelte-blueprint
     description: Build svelte components documentation.
