@@ -18,7 +18,7 @@
 
 	<meta name="title" property="og:title" content={`${data.head.description}`} />
 	<meta name="type" property="og:type" content="website" />
-	<meta name="url" property="og:url" content={`https://www.evesan.rocks/${$page.params.lang}/path/`} />
+	<meta name="url" property="og:url" content={`https://www.evesan.rocks/${$page.params.lang}/about/`} />
 	<!-- <meta name="image" property="og:image" content="https://prezento.vercel.app/preview.png" /> -->
 
 	<meta name="twitter:creator" content="@everitosan" />

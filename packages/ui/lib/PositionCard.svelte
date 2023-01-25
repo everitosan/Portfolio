@@ -196,6 +196,10 @@
   }
 
   @media screen and (max-width: breakpoints.$md) {
+
+    .PositionCard__title {
+      padding-bottom: utils.sizing(2);
+    }
     .PositionCard__main__detail__text {
       grid-template-columns: 1fr 36px 115px 1fr;
 
