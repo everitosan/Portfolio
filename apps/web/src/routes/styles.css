@@ -12,11 +12,11 @@
 body {
 	min-height: 100vh;
 	margin: 0;
-	background: #000;
+	/* background: #000;
 	background-image: url("/img/shubham.jpg");
 	background-position: top center;
 	background-attachment: fixed;
-	background-size: cover;
+	background-size: cover; */
 }
 
 .app {

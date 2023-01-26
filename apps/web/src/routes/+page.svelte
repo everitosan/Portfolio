@@ -1,30 +1,37 @@
 <script lang="ts">
 	import { page } from '$app/stores'
-
-	import { onMount } from 'svelte'
 	import { detectLang } from '$lib/lang'
+	import { onMount } from 'svelte'
+	import { reducedMotion } from 'ui/utils/motion'
 	import type { PageData } from './$types'
 	import type { ManifestData } from 'types/entities'
+
   import { marked } from "marked"
 	import Typed from "typed.js"
-
 
 	export let data: PageData;
 
 	let manifestData: ManifestData | undefined = undefined;
+	let content = ""
 
-	onMount(() => {
+	const animateText = () => {
 		const lang = detectLang();
 		const found = data.langs.filter((part) => part.lang === lang);
-		if (found.length > 0) {
-			manifestData = found[0].data
+		manifestData = (found.length > 0) ? found[0].data: data.langs[0].data
+		content = marked.parse(manifestData.content)
+
+		if (!reducedMotion()) {	
 			let options = {
-				strings: [marked.parse(manifestData.content)],
-				typeSpeed: 20,
+				strings: [content],
+				typeSpeed: 0.2,
 				smartBackspace: false
 			};
 			new Typed('.manifest__content', options);
 		}
+	}
+
+	onMount(() => {
+		animateText()
 	});
 </script>
 
@@ -57,6 +64,9 @@
 
 <div class="manifest">
 	<div class="manifest__content">
+		{#if manifestData && reducedMotion()}
+			{@html content}
+		{/if}
 	</div>
 </div>
 

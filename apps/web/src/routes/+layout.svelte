@@ -1,4 +1,5 @@
 <script>
+	import BG from "ui/lib/3D.svelte"
 	import Header from "ui/lib/Header.svelte"
 	import Logo from "ui/lib/Logo.svelte"
 	import Menu from "$lib/Menu.svelte"
@@ -13,6 +14,9 @@
 
 </script>
 
+<div class="bg">
+	<BG />
+</div>
 <div class="app">
 	<Header>
 		<a slot="left" href="/">
@@ -39,11 +43,18 @@
 		max-width:  breakpoints.$xl;
 		padding: utils.sizing(4) utils.sizing(6);
 	}
+	.bg {
+			position: fixed;
+			left: 0;
+			top: 0;
+	}
 
 	.app {
+		position: relative;
 		a {
 			text-decoration: none;
 		}
+
 	}
 
 	@media screen and (max-width: breakpoints.$md) {
