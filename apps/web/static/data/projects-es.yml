@@ -6,6 +6,15 @@ categories:
 - name: Código abierto
   color: "#5c46c8"
   projects:
+  - name: Shhy
+    url: https://github.com/everitosan/sshy
+    description: SSH manager sin uso de archivos config.
+  - name: C_Auth
+    url: https://github.com/everitosan/cataclysm_auth
+    description: Biblioteca para manejar la autenticación y autorización con el framework catalysm.
+  - name: JustFetch
+    url: https://www.npmjs.com/package/justfetch-ts
+    description: Pequeña biblioteca basada en fetch que permite hacer peticiones de una forma más rápida con typescript. 
   - name: Sniim
     url: https://github.com/everitosan/sniim-scrapper
     description: Scraper para obtener los datos de precios sobre algunos productos como frutos y carnes en México.
@@ -40,10 +49,10 @@ categories:
     url: https://www.behance.net/gallery/122540875/Education-web-platform
     description: Plataforma de educación en línea.
   - name: BID
-    url: https://www.sable.mx/detalle/web-platform-bid
+    url: https://www.behance.net/gallery/41540253/Contemos-lo-que-logramos-BID-Mxico
     description: Brochure interactivo para reporte anual del Banco Interamericano de Desarrollo.
   - name: Jetro
-    url: https://www.sable.mx/detalle/web-platform-jetro
+    url: https://www.behance.net/gallery/41732231/Jetro-Proyecto-x?tracking_source=project_owner_other_projects
     description: Mapa interactivo de parques industriales.
 
 - name: Colaboraciones

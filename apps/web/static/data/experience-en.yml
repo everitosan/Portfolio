@@ -3,6 +3,26 @@ head:
   description: A brief resume of my professional experience over the last ten years
 title: My Path
 positions:
+- logo: "/img/SAT.svg"
+  color: "#037EEF"
+  company: SAT
+  position: IT Project Development Manager
+  lapse: 2023-2025
+  description: |
+    As a manager at [Tax Administration Service](https://www.sat.gob.mx/home) I led several initiatives aimed at reducing internal development time and increasing delivery capacity.
+
+    - Internal react and svelte uikit library with a11y
+    - Pdf custom library based in pdf-js for institutional porpuses
+    - Deploy automation on several projects with bash & makefile
+    - Design and inclusion of unit, integration and e2e tests
+
+    Also I colaborated with some projects like [SatID](https://satid.sat.gob.mx), [ZonaFronteriza](https://zonafronteriza.sat.gob.mx) and Donatarias.
+
+    ### Technologies:
+    - **Languages**: Rustlang, Python, C#, Typescript, Html, Css
+    - **Frameworks & libraries**: Actix web, Cataclysm, Django, Flask, Svelte, React, Sass
+    - **Tools**: Nginx, Github, Gitlab, Gitlab-CI, Taiga, Cypress, LXD, Docker, Linux
+    - **Databases**: Postgres
 - logo: "/img/frog.svg"
   color: "#00FF75"
   company: Frog

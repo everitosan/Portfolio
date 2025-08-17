@@ -3,6 +3,26 @@ head:
   description: Un pequeño resumen de mi experiencia personal en los últimos años.
 title: Mi Path
 positions:
+- logo: "/img/SAT.svg"
+  color: "#037EEF"
+  company: SAT
+  position: Administrador de proyectos en comunicaciones y tecnologías de la informacíón
+  lapse: 2023-2025
+  description: |
+    Como administradoe en el [Servicio de Administración Tributaria](https://www.sat.gob.mx/home) lideré algunas inicititivas que buscan reducir el tiempo de desarrollo interno y aumentar la capacidad de entregas.
+
+    - Biblioteca de componentes para react y svelte basados en recomendaciones de a11d
+    - Biblioteca personalizada para la generación de PDF's basada en pdf-js con marcas institucionales
+    - Automatización de despliegues en diversos proyectos con bash & makefile
+    - Diseño e integración de test unitarios, de integración y de punta a punta 
+
+    También colaboré en proyectos como [SatID](https://satid.sat.gob.mx), [ZonaFronteriza](https://zonafronteriza.sat.gob.mx) y el registro de Donatarias.
+
+    ### Tecnologías usadas:
+    - **Lenguajes**: Rustlang, Python, C#, Typescript, Html, Css
+    - **Frameworks & bibliotecas**: Actix web, Cataclysm, Django, Flask, Svelte, React, Sass
+    - **Herramientas**: Nginx, Github, Gitlab, Gitlab-CI, Taiga, Cypress, LXD, Docker, Linux
+    - **Bases de datos**: Postgres
 - logo: "/img/frog.svg"
   color: "#03EF7E"
   company: Frog
