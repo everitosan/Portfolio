@@ -1,2 +1,17 @@
 # Portfolio
-Own website repository based in turbo repo.
+Own website as mono repo (turbo).
+
+## Commands
+
+**To start develpoment server**  
+
+```bash
+make dev
+```
+
+**To create a compiled package**  
+
+```bash
+make dev
+```
+

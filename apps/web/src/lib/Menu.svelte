@@ -77,6 +77,16 @@
 				{lang === 'es' ? 'Proyectos' : 'Projects'}
 			</MenuItem>
 
+			<MenuItem
+				icon="chip"
+				variant="tertiary"
+				active={section == 'blog/'}
+				target="_blank"
+				href='https://dev.to/evesan'
+			>
+				Blog
+			</MenuItem>
+
 			<div class="Menu__lang">
 				<a tabindex="0" href={`/en/${section}`} class:active={lang == 'en'}> En </a>
 				<div>/</div>

@@ -5,6 +5,7 @@
   export let icon:  "chip" | "laptop" | "branch" = "laptop";
   export let variant : "primary" | "secondary" | "tertiary" = "primary"
   export let active: boolean = false
+  export let target : "_blank" | "_self" = "_self"
 
 </script>
 
@@ -12,6 +13,7 @@
   <a 
     class="MenuItem__link"
     tabindex="0"
+    target={target}
     href={href}>
     <Icon name={icon} />
     <slot></slot>
