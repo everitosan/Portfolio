@@ -15,3 +15,9 @@ make dev
 make dev
 ```
 
+**To deploy a compiled package**  
+
+```bash
+make deploy
+```
+
