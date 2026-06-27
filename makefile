@@ -1,11 +1,8 @@
 dev:
 	@. ${HOME}/.nvm/nvm.sh && nvm use && npx turbo run dev
 
-build:
-	@./utils/scripts/build.sh
-
-deploy:
-	@./utils/scripts/deploy.sh
+deploy-web:
+	@./utils/scripts/deploy-web.sh
 
 deploy-blog:
 	@./utils/scripts/deploy-blog.sh

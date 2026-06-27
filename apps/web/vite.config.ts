@@ -1,11 +1,19 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import type { UserConfig } from 'vite';
+import { defineConfig } from 'vite';
+import path from 'path';
 
-const config: UserConfig = {
+export default defineConfig({
 	plugins: [sveltekit()],
-	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
+	resolve: {
+		alias: {
+			ui: path.resolve(__dirname, '../../packages/ui')
+		}
+	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				includePaths: [path.resolve(__dirname, '../../packages/ui')]
+			}
+		}
 	}
-};
-
-export default config;
+});

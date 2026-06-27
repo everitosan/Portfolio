@@ -67,7 +67,7 @@
     variant="tertiary"
     active={section == 'blog/'}
     target="_blank"
-    href="https://blog.evesan.rocks"
+    href={`https://blog.evesan.rocks/${lang}`}
   >
     Blog
   </MenuItem>
