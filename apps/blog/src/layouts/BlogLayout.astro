@@ -1,0 +1,180 @@
+---
+import BlogHeader from '@/components/BlogHeader.svelte'
+import BG from 'ui/lib/3D.svelte'
+import type { Lang } from '@/lib/types'
+
+interface Props {
+  title: string
+  description?: string
+  ogImage?: string
+  lang?: Lang
+  canonicalSlug?: string
+}
+
+const {
+  title,
+  description = 'Blog by Everardo Sanchez — software development, tools and ideas.',
+  ogImage,
+  lang = 'en',
+  canonicalSlug,
+} = Astro.props
+
+const canonicalURL = canonicalSlug
+  ? new URL(`/${lang}/${canonicalSlug}`, Astro.site)
+  : new URL(Astro.url.pathname, Astro.site)
+
+const altLang: Lang = lang === 'en' ? 'es' : 'en'
+const altLangURL = canonicalSlug ? `/${altLang}/${canonicalSlug}` : `/${altLang}`
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Everardo's Blog" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+    <link rel="alternate" hreflang={lang} href={canonicalURL} />
+    <link rel="alternate" hreflang={altLang} href={new URL(altLangURL, Astro.site)} />
+    <link rel="stylesheet" href="/icons/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS EN" href="/en/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="RSS ES" href="/es/rss.xml" />
+  </head>
+
+  <body>
+    <div class="bg">
+      <BG client:load />
+    </div>
+    <div class="app">
+      <BlogHeader lang={lang} client:load />
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="footer">
+        <p>© {new Date().getFullYear()} Everardo Sanchez · <a href={`/${lang}/rss.xml`}>RSS</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @import '@fontsource/orbitron/index.css';
+  @import '@fontsource/saira-condensed/index.css';
+  @import '@fontsource/share-tech-mono/index.css';
+</style>
+
+<style lang="scss" is:global>
+  @use 'ui/Styles/colors';
+  @use 'ui/Styles/typography';
+  @use 'ui/Styles/breakpoints';
+  @use 'ui/Styles/utils';
+
+  @font-face {
+    font-family: 'Revamped';
+    src: url('/fonts/revamped-font/Revamped-X3q1a.ttf') format('truetype');
+    font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-bg: #0d0f14;
+    --color-surface: rgba(45, 45, 65, 0.9);
+    --color-border: #{colors.$gray};
+    --color-text: #{colors.$white};
+    --color-muted: #7a7f8e;
+    --color-accent: #{colors.$yellow};
+    --color-accent-secondary: #{colors.$purple};
+    --color-accent-tertiary: #{colors.$orange};
+    --font-title: 'Orbitron', sans-serif;
+    --font-body: 'Saira Condensed', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
+    --max-width: #{breakpoints.$xl};
+    --radius: 6px;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 20px;
+    line-height: 1.7;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { opacity: 0.8; }
+
+  img { max-width: 100%; height: auto; border-radius: var(--radius); }
+</style>
+
+<style lang="scss">
+  @use 'ui/Styles/colors';
+  @use 'ui/Styles/breakpoints';
+  @use 'ui/Styles/utils';
+
+  .bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .app {
+    position: relative;
+    z-index: 1;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+
+    a { text-decoration: none; }
+  }
+
+  main {
+    flex: 1;
+    color: colors.$white;
+    margin: 0 auto;
+    max-width: breakpoints.$xl;
+    width: 100%;
+    padding: utils.sizing(4) utils.sizing(6);
+  }
+
+  .footer {
+    border-top: 1px solid colors.$gray;
+    text-align: center;
+    padding: utils.sizing(2);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    color: var(--color-muted);
+
+    a { color: var(--color-muted); }
+    a:hover { color: colors.$yellow; }
+  }
+
+  @media screen and (max-width: breakpoints.$md) {
+    main { padding: utils.sizing(2) utils.sizing(2); }
+  }
+</style>

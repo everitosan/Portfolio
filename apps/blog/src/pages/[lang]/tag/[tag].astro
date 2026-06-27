@@ -1,0 +1,69 @@
+---
+import BlogLayout from '@/layouts/BlogLayout.astro'
+import PostCard from '@/components/PostCard.astro'
+import { getRepository } from '@/lib/repository'
+import type { Lang } from '@/lib/types'
+
+const { lang, tag: tagSlug } = Astro.params
+if (lang !== 'en' && lang !== 'es') return Astro.redirect('/en', 301)
+
+const validLang = lang as Lang
+
+let tag
+let posts: Awaited<ReturnType<typeof getRepository extends never ? never : ReturnType<typeof getRepository>['getPostsByTag']>>
+try {
+  const repo = getRepository()
+  tag = await repo.getTag(tagSlug!)
+  const result = await repo.getPostsByTag(tagSlug!, validLang)
+  posts = result.items
+} catch {
+  return new Response(null, { status: 404 })
+}
+
+const title = `#${tag.name} — ${validLang === 'es' ? 'EveSan · Blog' : "Everardo's Blog"}`
+---
+
+<BlogLayout title={title} lang={validLang}>
+  <section>
+    <div class="tag-header">
+      <a class="back" href={`/${validLang}`}>←</a>
+      <h1 class="tag-title">#{tag.name}</h1>
+    </div>
+    <p class="tag-count">
+      {posts.length} {validLang === 'es' ? 'posts' : 'posts'}
+    </p>
+
+    <div class="grid">
+      {posts.map((post) => <PostCard post={post} lang={validLang} />)}
+    </div>
+  </section>
+</BlogLayout>
+
+<style>
+  .tag-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .back {
+    color: var(--color-muted);
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+  .back:hover { color: var(--color-accent); }
+
+  .tag-title {
+    font-family: var(--font-mono);
+    font-size: 1.75rem;
+    color: var(--color-accent);
+  }
+
+  .tag-count {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+
+  .grid { display: grid; gap: 1.25rem; }
+</style>

@@ -1,0 +1,29 @@
+---
+interface Props {
+  name: string
+  slug: string
+  lang: string
+}
+const { name, slug, lang } = Astro.props
+---
+
+<a class="tag" href={`/${lang}/tag/${slug}`}>#{name}</a>
+
+<style lang="scss">
+  @use 'ui/Styles/colors';
+  @use 'ui/Styles/typography';
+
+  .tag {
+    @include typography.techie-small-text;
+    display: inline-block;
+    color: colors.$yellow;
+    border: 1px solid colors.$yellow;
+    opacity: 0.6;
+    padding: 2px 8px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+
+    &:hover { opacity: 1; }
+  }
+</style>

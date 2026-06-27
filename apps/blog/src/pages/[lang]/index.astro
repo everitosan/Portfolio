@@ -1,0 +1,76 @@
+---
+import BlogLayout from '@/layouts/BlogLayout.astro'
+import PostCard from '@/components/PostCard.astro'
+import Title from 'ui/lib/Title.svelte'
+import { getRepository } from '@/lib/repository'
+import type { Lang } from '@/lib/types'
+
+const { lang } = Astro.params
+if (lang !== 'en' && lang !== 'es') return Astro.redirect('/en', 301)
+
+const validLang = lang as Lang
+const page = Number(Astro.url.searchParams.get('page') ?? 1)
+const { items: posts, totalPages } = await getRepository().getPosts(validLang, page)
+
+const title = validLang === 'en' ? "Everardo's Blog" : 'EveSan · Blog'
+const description =
+  validLang === 'en'
+    ? 'Thoughts on software development, tools and ideas.'
+    : 'Pensamientos sobre desarrollo de software, herramientas e ideas.'
+---
+
+<BlogLayout title={title} description={description} lang={validLang}>
+  <section>
+    <div class="page-title">
+      <Title variant="primary">blog</Title>
+    </div>
+
+    {posts.length === 0 ? (
+      <p class="empty">
+        {validLang === 'en' ? 'No posts yet. Stay tuned!' : 'Sin posts aún. ¡Pronto habrá contenido!'}
+      </p>
+    ) : (
+      <div class="grid">
+        {posts.map((post) => <PostCard post={post} lang={validLang} />)}
+      </div>
+    )}
+
+    {totalPages > 1 && (
+      <nav class="pagination" aria-label="Pagination">
+        {page > 1 && <a href={`/${validLang}?page=${page - 1}`}>← Prev</a>}
+        <span>{page} / {totalPages}</span>
+        {page < totalPages && <a href={`/${validLang}?page=${page + 1}`}>Next →</a>}
+      </nav>
+    )}
+  </section>
+</BlogLayout>
+
+<style lang="scss">
+  @use 'ui/Styles/utils';
+  @use 'ui/Styles/colors';
+
+  .page-title { margin-bottom: utils.sizing(3); }
+
+  .grid {
+    display: grid;
+    gap: utils.sizing(1.5);
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+
+  .empty {
+    color: var(--color-muted);
+    margin-top: utils.sizing(2);
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: utils.sizing(2);
+    margin-top: utils.sizing(3);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+  .pagination a { color: colors.$yellow; }
+</style>

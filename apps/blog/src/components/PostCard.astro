@@ -1,0 +1,110 @@
+---
+import Card from 'ui/lib/Card.svelte'
+import TagBadge from './TagBadge.astro'
+import type { Post, Tag } from '@/lib/types'
+
+interface Props {
+  post: Post
+  lang: string
+}
+const { post, lang } = Astro.props
+
+const tags = (post.expand?.tags ?? []) as Tag[]
+const date = new Date(post.published_at).toLocaleDateString(
+  lang === 'es' ? 'es-MX' : 'en-US',
+  { year: 'numeric', month: 'long', day: 'numeric' }
+)
+---
+
+<div class="card-wrapper">
+  <Card variant="primary">
+    <article class="post">
+      {post.cover_url && (
+        <img class="post__cover" src={post.cover_url} alt={post.title} loading="lazy" />
+      )}
+      <div class="post__meta">
+        <time datetime={post.published_at}>{date}</time>
+      </div>
+      <h2 class="post__title">
+        <a class="post__link" href={`/${lang}/${post.slug}`}>{post.title}</a>
+      </h2>
+      <p class="post__excerpt">{post.excerpt}</p>
+      {tags.length > 0 && (
+        <div class="post__tags">
+          {tags.map((tag) => <TagBadge name={tag.name} slug={tag.slug} lang={lang} />)}
+        </div>
+      )}
+    </article>
+  </Card>
+</div>
+
+<style lang="scss">
+  @use 'ui/Styles/colors';
+  @use 'ui/Styles/typography';
+  @use 'ui/Styles/utils';
+
+  .card-wrapper {
+    position: relative;
+    transition: opacity 0.2s;
+
+    &:hover { opacity: 0.85; }
+  }
+
+  .post {
+    padding: utils.sizing(1);
+  }
+
+  .post__cover {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: utils.sizing(2);
+    display: block;
+  }
+
+  .post__meta {
+    @include typography.techie-small-text;
+    color: var(--color-muted);
+    margin-bottom: utils.sizing(1);
+  }
+
+  .post__title {
+    @include typography.title-text;
+    color: colors.$yellow;
+    margin-bottom: utils.sizing(1);
+    line-height: 1.3;
+  }
+
+  .post__link {
+    color: inherit;
+    text-decoration: none;
+
+    /* stretched link — cubre toda la card-wrapper */
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+  }
+
+  .post__excerpt {
+    @include typography.small-text;
+    color: colors.$white;
+    opacity: 0.75;
+    margin-bottom: utils.sizing(2);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .post__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: utils.sizing(0.5);
+    position: relative;
+    z-index: 1; /* encima del stretched link */
+  }
+</style>
