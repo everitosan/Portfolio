@@ -2,6 +2,6 @@
   "workbench.colorCustomizations": {
     "[Default Dark+]": {}
   },
-  "workbench.colorTheme": "Tokyo Night",
-  "workbench.preferredDarkColorTheme": "Default Dark+"
+  "workbench.colorTheme": "Solarized Dark",
+  "workbench.preferredDarkColorTheme": "Dark+"
 }
