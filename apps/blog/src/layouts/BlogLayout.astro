@@ -75,17 +75,49 @@ const altLangURL = canonicalSlug ? `/${altLang}/${canonicalSlug}` : `/${altLang}
   </body>
 </html>
 
-<style is:global>
-  @import '@fontsource/orbitron/index.css';
-  @import '@fontsource/saira-condensed/index.css';
-  @import '@fontsource/share-tech-mono/index.css';
-</style>
-
 <style lang="scss" is:global>
   @use 'ui/Styles/colors';
   @use 'ui/Styles/typography';
   @use 'ui/Styles/breakpoints';
   @use 'ui/Styles/utils';
+
+  @font-face {
+    font-family: 'Orbitron';
+    src: url('/fonts/orbitron/orbitron-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Orbitron';
+    src: url('/fonts/orbitron/orbitron-latin-700-normal.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Saira Condensed';
+    src: url('/fonts/saira-condensed/saira-condensed-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Saira Condensed';
+    src: url('/fonts/saira-condensed/saira-condensed-latin-700-normal.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Share Tech Mono';
+    src: url('/fonts/share-tech-mono/share-tech-mono-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
 
   @font-face {
     font-family: 'Revamped';
@@ -113,6 +145,8 @@ const altLangURL = canonicalSlug ? `/${altLang}/${canonicalSlug}` : `/${altLang}
 
   html { font-size: 16px; scroll-behavior: smooth; }
 
+  html, body { overflow-x: hidden; }
+
   body {
     background: var(--color-bg);
     color: var(--color-text);
@@ -123,6 +157,11 @@ const altLangURL = canonicalSlug ? `/${altLang}/${canonicalSlug}` : `/${altLang}
     display: flex;
     flex-direction: column;
   }
+
+  /* Fix grid shrinking dentro de Card */
+  .Card__main { grid-template-columns: 8px minmax(0, 1fr) !important; }
+  .Card__main__content { min-width: 0; }
+  .Card__main__content__wrapper { min-width: 0; word-wrap: break-word; }
 
   a { color: var(--color-accent); text-decoration: none; }
   a:hover { opacity: 0.8; }

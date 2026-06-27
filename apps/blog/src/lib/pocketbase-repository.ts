@@ -6,16 +6,18 @@ const now = () => new Date().toISOString().replace('T', ' ').substring(0, 19)
 
 export class PocketBaseRepository implements BlogRepository {
   private pb: PocketBase
+  private publicPb: PocketBase
 
-  constructor(url: string) {
+  constructor(url: string, publicUrl: string) {
     this.pb = new PocketBase(url)
+    this.publicPb = new PocketBase(publicUrl)
   }
 
   private withCoverUrl(post: Post): Post {
     return {
       ...post,
       cover_url: post.cover
-        ? this.pb.files.getURL(post, post.cover)
+        ? this.publicPb.files.getURL(post, post.cover)
         : '',
     }
   }

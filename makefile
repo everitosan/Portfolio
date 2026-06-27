@@ -7,4 +7,7 @@ build:
 deploy:
 	@./utils/scripts/deploy.sh
 
+deploy-blog:
+	@./utils/scripts/deploy-blog.sh
+
 	

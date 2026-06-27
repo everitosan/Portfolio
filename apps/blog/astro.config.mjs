@@ -9,4 +9,9 @@ export default defineConfig({
   site: 'https://blog.evesan.rocks',
   integrations: [svelte(), sitemap()],
   server: { port: 4321 },
+  vite: {
+    ssr: {
+      noExternal: ['three', 'ui', 'pocketbase', 'marked'],
+    },
+  },
 })

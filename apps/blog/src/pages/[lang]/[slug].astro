@@ -74,12 +74,25 @@ const readLabel = validLang === 'es' ? `${mins} min de lectura` : `${mins} min r
   @use 'ui/Styles/typography';
   @use 'ui/Styles/utils';
 
+  :global(.Card),
+  :global(.Card__main),
+  :global(.Card__main__content),
+  :global(.Card__main__content__wrapper) {
+    min-width: 0;
+  }
   :global(.Card__main__content__wrapper) {
     max-height: none !important;
     overflow-y: visible !important;
   }
 
-  .post { padding: utils.sizing(1); }
+  .post {
+    padding: utils.sizing(1);
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .post-content { min-width: 0; max-width: 100%; }
 
   .cover {
     width: 100%;
@@ -156,10 +169,20 @@ const readLabel = validLang === 'es' ? `${mins} min de lectura` : `${mins} min r
     border-radius: 4px;
     padding: utils.sizing(1.5);
     overflow-x: auto;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
     margin-bottom: utils.sizing(2);
   }
-  .post-content :global(pre code) { background: none; border: none; padding: 0; }
-  .post-content :global(a) { color: colors.$yellow; }
+  .post-content :global(pre code) {
+    background: none;
+    border: none;
+    padding: 0;
+    white-space: pre;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+  .post-content :global(a) { color: colors.$yellow; overflow-wrap: anywhere; }
   .post-content :global(img) { margin: utils.sizing(2) 0; }
   .post-content :global(hr) {
     border: none;

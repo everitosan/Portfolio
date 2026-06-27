@@ -5,6 +5,7 @@ declare module '@fontsource-variable/*'
 
 interface ImportMetaEnv {
   readonly POCKETBASE_URL: string
+  readonly POCKETBASE_PUBLIC_URL: string
 }
 
 interface ImportMeta {

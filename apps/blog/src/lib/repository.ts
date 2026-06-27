@@ -5,8 +5,9 @@ import type { BlogRepository } from './blog-repository'
 // Para cambiar de fuente de datos, reemplaza PocketBaseRepository
 // por otra implementación de BlogRepository.
 export function getRepository(): BlogRepository {
-  const url = import.meta.env.POCKETBASE_URL ?? 'http://localhost:8090'
-  return new PocketBaseRepository(url)
+  const url = process.env.POCKETBASE_URL ?? 'http://localhost:8090'
+  const publicUrl = process.env.POCKETBASE_PUBLIC_URL ?? url
+  return new PocketBaseRepository(url, publicUrl)
 }
 
 export function readingTime(content: string): number {
