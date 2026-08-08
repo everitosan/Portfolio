@@ -28,11 +28,16 @@
 
   let bodyEl = $state<HTMLDivElement | undefined>()
 
-  // Añade un botón "copiar" a cada bloque de código del nodo.
+  // Añade un botón "copiar" a cada bloque de código del nodo y fuerza que
+  // todos los enlaces del markdown abran en una pestaña nueva.
   $effect(() => {
     void html // re-ejecuta si cambia el contenido
     const el = bodyEl
     if (!el) return
+    el.querySelectorAll('a[href]').forEach((a) => {
+      a.setAttribute('target', '_blank')
+      a.setAttribute('rel', 'noopener noreferrer')
+    })
     el.querySelectorAll('pre').forEach((pre) => {
       if (pre.querySelector('.copy-btn')) return
       const btn = document.createElement('button')
@@ -60,6 +65,7 @@
   class="cnode"
   class:link={d.kind === 'link'}
   class:clipped
+  class:colored={!!d.color}
   data-shape={shape}
   data-border={border}
   style:--accent={d.color ?? 'var(--canvas-default-accent)'}
@@ -86,6 +92,16 @@
     border: 1px solid var(--accent);
     border-left: 3px solid var(--accent);
     border-radius: 6px;
+  }
+
+  /* Nodos con color: el fondo entero se tiñe con el acento (como Obsidian),
+     en vez de solo el borde. La intensidad la controla --node-tint-strength. */
+  .cnode.colored {
+    background: color-mix(
+      in srgb,
+      var(--accent) var(--node-tint-strength, 14%),
+      var(--node-bg, rgba(20, 22, 30, 0.92))
+    );
     font-family: var(--node-font, sans-serif);
     color: var(--node-text, #eaeaf0);
     font-size: 18px;
@@ -125,6 +141,13 @@
     position: absolute;
     inset: 1.5px;
     background: var(--node-bg, rgba(20, 22, 30, 0.92));
+  }
+  .cnode.colored .cnode__clip::after {
+    background: color-mix(
+      in srgb,
+      var(--accent) var(--node-tint-strength, 14%),
+      var(--node-bg, rgba(20, 22, 30, 0.92))
+    );
   }
   .cnode[data-border='none'] .cnode__clip { background: transparent; }
 
@@ -174,20 +197,14 @@
     margin: 0 0 8px;
     line-height: 1.3;
   }
-  .cnode__body :global(h1),
-  .cnode__body :global(h2),
-  .cnode__body :global(h3),
-  .cnode__body :global(h4),
-  .cnode__body :global(h5),
-  .cnode__body :global(h6) {
-    color: var(--node-text, #eaeaf0);
-  }
-  .cnode__body :global(h1) { font-size: 1.5em; }
-  .cnode__body :global(h2) { font-size: 1.25em; }
-  .cnode__body :global(h3) { font-size: 1.1em; }
-  .cnode__body :global(h4) { font-size: 1em; }
-  .cnode__body :global(h5) { font-size: 0.95em; }
-  .cnode__body :global(h6) { font-size: 0.9em; }
+  /* Encabezados coloreados por nivel (como Dracula for Obsidian).
+     El tema aporta --node-hN-color; si no, caen a --node-text. */
+  .cnode__body :global(h1) { color: var(--node-h1-color, var(--node-text, #eaeaf0)); font-size: 1.5em; }
+  .cnode__body :global(h2) { color: var(--node-h2-color, var(--node-text, #eaeaf0)); font-size: 1.25em; }
+  .cnode__body :global(h3) { color: var(--node-h3-color, var(--node-text, #eaeaf0)); font-size: 1.1em; }
+  .cnode__body :global(h4) { color: var(--node-h4-color, var(--node-text, #eaeaf0)); font-size: 1em; }
+  .cnode__body :global(h5) { color: var(--node-h5-color, var(--node-text, #eaeaf0)); font-size: 0.95em; }
+  .cnode__body :global(h6) { color: var(--node-h6-color, var(--node-text, #eaeaf0)); font-size: 0.9em; }
   .cnode__body :global(strong),
   .cnode__body :global(b) { color: var(--node-strong-color, inherit); }
   .cnode__body :global(em),

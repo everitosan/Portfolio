@@ -1,0 +1,100 @@
+/*
+ * Tema "Dark Moss" (inspirado en la estética moss/terrosa para Obsidian)
+ *
+ * Sigue el mismo contrato de variables que things.css / dracula.css sobre
+ * [data-canvas-theme]. Por defecto define el modo oscuro (paleta mossy);
+ * el modo claro usa una variante "pergamino" según prefers-color-scheme.
+ *
+ * Paleta base (oscuro):
+ *   fondo #1a1d16  tarjeta #232720  texto #d8d6c4  apagado #7c8471
+ *   rust #c1584a  amber #d9944f  gold #d6c358  moss #8fa35a
+ *   teal #5f9e8f  mauve #a78bb0
+ */
+
+/* --- Modo oscuro (por defecto): Dark Moss --- */
+[data-canvas-theme] {
+  /* Tipografía */
+  --node-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter,
+    Ubuntu, sans-serif;
+  --node-mono-font: 'JetBrains Mono', 'Fira Code', Menlo, Consolas,
+    'Roboto Mono', monospace;
+
+  /* Nodos custom */
+  --node-bg: #232720;             /* tarjeta (un poco más clara que el lienzo) */
+  --node-text: #d8d6c4;           /* texto cálido */
+  --node-strong-color: #d9944f;   /* bold (amber) */
+  --node-em-color: #8fa35a;       /* itálica (moss) */
+  --node-code-bg: #1a1d16;        /* inline code */
+  --node-code-color: #8fa35a;     /* moss */
+  --node-codeblock-bg: #1a1d16;   /* bloques de código */
+
+  /* Intensidad del tinte de fondo en nodos con color */
+  --node-tint-strength: 16%;
+
+  /* Encabezados coloreados por nivel */
+  --node-h1-color: #8fa35a; /* moss */
+  --node-h2-color: #d6c358; /* gold */
+  --node-h3-color: #d9944f; /* amber */
+  --node-h4-color: #5f9e8f; /* teal */
+  --node-h5-color: #a78bb0; /* mauve */
+  --node-h6-color: #c1584a; /* rust */
+
+  /* Aristas más marcadas, como Obsidian */
+  --xy-edge-stroke-width: 1.5;
+
+  /* Colores de acento (1..6) para nodos y aristas */
+  --canvas-color-1: #c1584a; /* red / rust */
+  --canvas-color-2: #d9944f; /* orange / amber */
+  --canvas-color-3: #d6c358; /* yellow / gold */
+  --canvas-color-4: #8fa35a; /* green / moss */
+  --canvas-color-5: #5f9e8f; /* cyan / teal */
+  --canvas-color-6: #a78bb0; /* purple / mauve */
+  --canvas-default-accent: #5a6350; /* nodos sin color (moss apagado) */
+
+  /* Lienzo de Svelte Flow */
+  --xy-background-color: #1a1d16;                 /* lienzo */
+  --xy-background-pattern-color: #2e332a;         /* puntos */
+  --xy-edge-stroke: #7c8471;                      /* apagado */
+  --xy-edge-label-color: #d8d6c4;
+  --xy-edge-label-background-color: #232720;
+  --xy-controls-button-background-color: #1a1d16;
+  --xy-controls-button-color: #d8d6c4;
+  --xy-controls-button-border-color: #2e332a;
+}
+
+/* --- Modo claro (si el SO lo prefiere): pergamino moss --- */
+@media (prefers-color-scheme: light) {
+  [data-canvas-theme] {
+    --node-bg: #f0eede;             /* tarjeta pergamino */
+    --node-text: #33352b;           /* texto */
+    --node-strong-color: #9a5a1e;   /* amber oscuro */
+    --node-em-color: #4d6127;       /* moss oscuro */
+    --node-code-bg: #e5e2ce;
+    --node-code-color: #4d6127;     /* moss */
+    --node-codeblock-bg: #e5e2ce;
+
+    --node-h1-color: #4d6127; /* moss */
+    --node-h2-color: #8a7314; /* gold */
+    --node-h3-color: #9a5a1e; /* amber */
+    --node-h4-color: #2f6357; /* teal */
+    --node-h5-color: #6b4f75; /* mauve */
+    --node-h6-color: #a3392b; /* rust */
+
+    --canvas-color-1: #a3392b; /* rust */
+    --canvas-color-2: #9a5a1e; /* amber */
+    --canvas-color-3: #8a7314; /* gold */
+    --canvas-color-4: #4d6127; /* moss */
+    --canvas-color-5: #2f6357; /* teal */
+    --canvas-color-6: #6b4f75; /* mauve */
+    --canvas-default-accent: #a9a891; /* moss claro apagado */
+
+    --xy-background-color: #e8e6d8;
+    --xy-background-pattern-color: #d2cfba;
+    --xy-edge-stroke: #a9a891;
+    --xy-edge-label-color: #33352b;
+    --xy-edge-label-background-color: #f0eede;
+    --xy-controls-button-background-color: #f0eede;
+    --xy-controls-button-color: #33352b;
+    --xy-controls-button-border-color: #d2cfba;
+  }
+}

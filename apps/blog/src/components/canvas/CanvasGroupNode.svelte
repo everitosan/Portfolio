@@ -1,12 +1,24 @@
 <script lang="ts">
-  import type { NodeProps } from '@xyflow/svelte'
+  import { Handle, Position, type NodeProps } from '@xyflow/svelte'
   import type { FlowNodeData } from '@/lib/canvas-to-flow'
 
   let { data }: NodeProps = $props()
   const d = data as FlowNodeData
+
+  const sides = [
+    { pos: Position.Top, id: 'top' },
+    { pos: Position.Right, id: 'right' },
+    { pos: Position.Bottom, id: 'bottom' },
+    { pos: Position.Left, id: 'left' },
+  ]
 </script>
 
 <div class="cgroup" style:--accent={d.color ?? 'var(--canvas-default-accent)'}>
+  {#each sides as s}
+    <Handle type="target" position={s.pos} id={s.id} isConnectable={false} />
+    <Handle type="source" position={s.pos} id={s.id} isConnectable={false} />
+  {/each}
+
   {#if d.label}
     <span class="cgroup__label">{d.label}</span>
   {/if}
@@ -33,5 +45,12 @@
     font-family: var(--node-font, sans-serif);
     font-size: 13px;
     color: var(--node-text, #dadada);
+  }
+
+  /* Handles invisibles (diagrama de solo lectura), solo sirven de ancla
+     para que las aristas card→grupo encuentren su punto de conexión. */
+  .cgroup :global(.svelte-flow__handle) {
+    opacity: 0;
+    pointer-events: none;
   }
 </style>
