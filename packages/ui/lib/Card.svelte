@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let variant: "primary" | "secondary" | "tertiary";
+  export let variant: "primary" | "secondary" | "tertiary" | "quaternary" | "quinary";
 </script>
 
 <div class="Card">
@@ -76,6 +76,8 @@
     --card-primary-color: #{colors.$yellow};
     --card-secondary-color: #{colors.$purple};
     --card-tertiary-color: #{colors.$orange};
+    --card-quaternary-color: #00FF75;
+    --card-quinary-color: #037EEF;
   }
 
   .Card {
@@ -172,6 +174,14 @@
       background: radial-gradient(circle, var(--card-tertiary-color) 0%, colors.$orange-transparent 100%);
     }
 
+    &.--quaternary {
+      background: radial-gradient(circle, var(--card-quaternary-color) 0%, rgba(0, 255, 117, 0.1) 100%);
+    }
+
+    &.--quinary {
+      background: radial-gradient(circle, var(--card-quinary-color) 0%, rgba(3, 126, 239, 0.1) 100%);
+    }
+
     &:nth-child(1) {
       animation: tilt 5s infinite;
     }
@@ -198,6 +208,12 @@
     }
     &--tertiary {
       background: var(--card-tertiary-color);
+    }
+    &--quaternary {
+      background: var(--card-quaternary-color);
+    }
+    &--quinary {
+      background: var(--card-quinary-color);
     }
   }
 
@@ -226,6 +242,16 @@
     &--tertiary{
       &::-webkit-scrollbar-thumb {
         background: var(--card-tertiary-color);
+      }
+    }
+    &--quaternary{
+      &::-webkit-scrollbar-thumb {
+        background: var(--card-quaternary-color);
+      }
+    }
+    &--quinary{
+      &::-webkit-scrollbar-thumb {
+        background: var(--card-quinary-color);
       }
     }
   }

@@ -1,7 +1,8 @@
 ---
 import BlogLayout from '@/layouts/BlogLayout.astro'
-import PostCard from '@/components/PostCard.astro'
+import FeedCard from '@/components/FeedCard.astro'
 import { getRepository } from '@/lib/repository'
+import { getFeedByTag, type FeedItem } from '@/lib/feed'
 import type { Lang } from '@/lib/types'
 
 const { lang, tag: tagSlug } = Astro.params
@@ -10,12 +11,10 @@ if (lang !== 'en' && lang !== 'es') return Astro.redirect('/en', 301)
 const validLang = lang as Lang
 
 let tag
-let posts: Awaited<ReturnType<typeof getRepository extends never ? never : ReturnType<typeof getRepository>['getPostsByTag']>>
+let items: FeedItem[]
 try {
-  const repo = getRepository()
-  tag = await repo.getTag(tagSlug!)
-  const result = await repo.getPostsByTag(tagSlug!, validLang)
-  posts = result.items
+  tag = await getRepository().getTag(tagSlug!)
+  items = await getFeedByTag(tagSlug!, validLang)
 } catch {
   return new Response(null, { status: 404 })
 }
@@ -30,11 +29,11 @@ const title = `#${tag.name} — ${validLang === 'es' ? 'EveSan · Blog' : "Evera
       <h1 class="tag-title">#{tag.name}</h1>
     </div>
     <p class="tag-count">
-      {posts.length} {validLang === 'es' ? 'posts' : 'posts'}
+      {items.length} {validLang === 'es' ? 'entradas' : 'entries'}
     </p>
 
     <div class="grid">
-      {posts.map((post) => <PostCard post={post} lang={validLang} />)}
+      {items.map((item) => <FeedCard item={item} lang={validLang} />)}
     </div>
   </section>
 </BlogLayout>

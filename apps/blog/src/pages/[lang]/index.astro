@@ -1,8 +1,8 @@
 ---
 import BlogLayout from '@/layouts/BlogLayout.astro'
-import PostCard from '@/components/PostCard.astro'
+import FeedCard from '@/components/FeedCard.astro'
 import Title from 'ui/lib/Title.svelte'
-import { getRepository } from '@/lib/repository'
+import { getFeed } from '@/lib/feed'
 import type { Lang } from '@/lib/types'
 
 const { lang } = Astro.params
@@ -10,7 +10,7 @@ if (lang !== 'en' && lang !== 'es') return Astro.redirect('/en', 301)
 
 const validLang = lang as Lang
 const page = Number(Astro.url.searchParams.get('page') ?? 1)
-const { items: posts, totalPages } = await getRepository().getPosts(validLang, page)
+const { items: posts, totalPages } = await getFeed(validLang, page)
 
 const title = validLang === 'en' ? "Everardo's Blog" : 'EveSan · Blog'
 const description =
@@ -31,7 +31,7 @@ const description =
       </p>
     ) : (
       <div class="grid">
-        {posts.map((post) => <PostCard post={post} lang={validLang} />)}
+        {posts.map((item) => <FeedCard item={item} lang={validLang} />)}
       </div>
     )}
 

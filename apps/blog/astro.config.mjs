@@ -11,7 +11,7 @@ export default defineConfig({
   server: { port: 4321 },
   vite: {
     ssr: {
-      noExternal: ['three', 'ui', 'pocketbase', 'marked'],
+      noExternal: ['three', 'ui', 'pocketbase', 'marked', 'marked-shiki', 'shiki'],
     },
   },
 })

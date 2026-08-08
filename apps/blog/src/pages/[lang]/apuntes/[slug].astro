@@ -1,0 +1,162 @@
+---
+import BlogLayout from '@/layouts/BlogLayout.astro'
+import TagBadge from '@/components/TagBadge.astro'
+import CanvasView from '@/components/canvas/CanvasView.svelte'
+import { getCanvasRepository } from '@/lib/repository'
+import { canvasToText } from '@/lib/canvas-to-flow'
+import { renderCanvasNodesHtml } from '@/lib/canvas-md'
+import type { Lang, Tag } from '@/lib/types'
+import type { CanvasData } from '@/lib/canvas-types'
+import { marked } from 'marked'
+
+const { lang, slug } = Astro.params
+if (lang !== 'en' && lang !== 'es') return Astro.redirect('/en', 301)
+const validLang = lang as Lang
+
+const repo = getCanvasRepository()
+
+let note
+try {
+  note = await repo.getNote(slug!)
+} catch {
+  return new Response(null, { status: 404 })
+}
+
+let canvas: CanvasData = { nodes: [], edges: [] }
+try {
+  canvas = await repo.getCanvasData(note)
+} catch (e) {
+  console.error('No se pudo cargar el .canvas:', e)
+}
+
+const tags = (note.expand?.tags ?? []) as Tag[]
+const introHtml = note.intro ? (marked.parse(note.intro) as string) : ''
+const textHtml = marked.parse(canvasToText(canvas)) as string
+
+// Markdown de los nodos renderizado en el servidor (con Shiki para el código)
+const nodesHtml = await renderCanvasNodesHtml(canvas)
+
+const date = new Date(note.published_at).toLocaleDateString(
+  validLang === 'es' ? 'es-MX' : 'en-US',
+  { year: 'numeric', month: 'long', day: 'numeric' }
+)
+
+const t = {
+  back: validLang === 'es' ? 'Volver al blog' : 'Back to blog',
+  fullscreen: validLang === 'es' ? 'Pantalla completa' : 'Fullscreen',
+  exitFullscreen: validLang === 'es' ? 'Salir' : 'Exit',
+}
+---
+
+<BlogLayout
+  title={`${note.title} — ${validLang === 'es' ? 'Apuntes' : 'Notes'}`}
+  description={note.excerpt}
+  ogImage={note.cover_url || undefined}
+  lang={validLang}
+>
+  <!--
+    Fallback SSR (indexable / sin JS). El overlay interactivo lo cubre cuando
+    hay JavaScript; los buscadores y los usuarios sin JS ven este contenido.
+  -->
+  <article class="seo-fallback">
+    <div class="meta">
+      <time datetime={note.published_at}>{date}</time>
+      <span class="badge">{validLang === 'es' ? 'diagrama' : 'diagram'}</span>
+    </div>
+    <h1>{note.title}</h1>
+    {note.excerpt && <p class="excerpt">{note.excerpt}</p>}
+    {tags.length > 0 && (
+      <div class="tags">
+        {tags.map((tag) => <TagBadge name={tag.name} slug={tag.slug} lang={validLang} />)}
+      </div>
+    )}
+    {introHtml && <div class="intro" set:html={introHtml} />}
+    {canvas.nodes.length > 0 && <div class="node-text" set:html={textHtml} />}
+    <p class="back"><a href={`/${validLang}`}>← {t.back}</a></p>
+  </article>
+
+  <!-- Vista interactiva a pantalla completa (solo cliente) -->
+  <CanvasView
+    client:only="svelte"
+    title={note.title}
+    excerpt={note.excerpt}
+    intro={introHtml}
+    date={date}
+    backHref={`/${validLang}`}
+    backLabel={t.back}
+    fullscreenLabel={t.fullscreen}
+    exitFullscreenLabel={t.exitFullscreen}
+    canvas={canvas}
+    nodesHtml={nodesHtml}
+  />
+</BlogLayout>
+
+<style lang="scss">
+  @use 'ui/Styles/colors';
+  @use 'ui/Styles/typography';
+  @use 'ui/Styles/utils';
+
+  .seo-fallback {
+    max-width: 70ch;
+
+    .meta {
+      @include typography.techie-small-text;
+      color: var(--color-muted);
+      margin-bottom: utils.sizing(1);
+      display: flex;
+      align-items: center;
+      gap: utils.sizing(1);
+    }
+
+    .badge {
+      border: 1px solid #00ff75;
+      color: #00ff75;
+      border-radius: 3px;
+      padding: 0 6px;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      @include typography.title-text;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: #00ff75;
+      line-height: 1.25;
+      margin-bottom: utils.sizing(1);
+    }
+
+    .excerpt {
+      color: colors.$white;
+      opacity: 0.7;
+      margin-bottom: utils.sizing(1.5);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: utils.sizing(0.5);
+      margin-bottom: utils.sizing(2);
+    }
+
+    .intro,
+    .node-text {
+      :global(h2) {
+        font-family: 'Orbitron', sans-serif;
+        color: #00ff75;
+        font-size: 1.1rem;
+        margin: utils.sizing(2) 0 utils.sizing(1);
+      }
+      :global(p) { margin-bottom: utils.sizing(1); }
+      :global(ul) { padding-left: utils.sizing(2); margin-bottom: utils.sizing(1); }
+      :global(a) { color: #00ff75; overflow-wrap: anywhere; }
+    }
+
+    .back {
+      margin-top: utils.sizing(3);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 13px;
+      a { color: var(--color-muted); }
+    }
+  }
+</style>
