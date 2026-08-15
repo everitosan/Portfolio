@@ -25,6 +25,10 @@ const canonicalURL = canonicalSlug
 
 const altLang: Lang = lang === 'en' ? 'es' : 'en'
 const altLangURL = canonicalSlug ? `/${altLang}/${canonicalSlug}` : `/${altLang}`
+
+const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
+const umamiEnabled = Boolean(umamiUrl && umamiWebsiteId)
 ---
 
 <!doctype html>
@@ -34,6 +38,7 @@ const altLangURL = canonicalSlug ? `/${altLang}/${canonicalSlug}` : `/${altLang}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" href="/favicon.png" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -55,6 +60,25 @@ const altLangURL = canonicalSlug ? `/${altLang}/${canonicalSlug}` : `/${altLang}
     <link rel="stylesheet" href="/icons/style.css" />
     <link rel="alternate" type="application/rss+xml" title="RSS EN" href="/en/rss.xml" />
     <link rel="alternate" type="application/rss+xml" title="RSS ES" href="/es/rss.xml" />
+
+    {
+      umamiEnabled && (
+        <>
+          <script
+            is:inline
+            defer
+            src={`${umamiUrl}/script.js`}
+            data-website-id={umamiWebsiteId}
+          />
+          <script
+            is:inline
+            defer
+            src={`${umamiUrl}/recorder.js`}
+            data-website-id={umamiWebsiteId}
+          />
+        </>
+      )
+    }
   </head>
 
   <body>
