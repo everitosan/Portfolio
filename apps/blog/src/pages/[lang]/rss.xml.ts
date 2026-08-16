@@ -5,16 +5,13 @@ import type { Lang } from '@/lib/types'
 
 export const GET: APIRoute = async ({ params, site }) => {
   const lang = params.lang as Lang
-  if (lang !== 'en' && lang !== 'es') return new Response(null, { status: 404 })
+  if (lang !== 'es') return new Response(null, { status: 404 })
 
   const { items: posts } = await getRepository().getPosts(lang, 1, 50)
 
   return rss({
-    title: lang === 'en' ? "Everardo's Blog" : 'EveSan · Blog',
-    description:
-      lang === 'en'
-        ? 'Thoughts on software development, tools and ideas.'
-        : 'Pensamientos sobre desarrollo de software, herramientas e ideas.',
+    title: 'EveSan · Blog',
+    description: 'Pensamientos sobre desarrollo de software, herramientas e ideas.',
     site: site!,
     items: posts.map((post) => ({
       title: post.title,

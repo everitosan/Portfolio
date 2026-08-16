@@ -15,16 +15,13 @@ const {
   title,
   description = 'Blog by Everardo Sanchez — software development, tools and ideas.',
   ogImage,
-  lang = 'en',
+  lang = 'es',
   canonicalSlug,
 } = Astro.props
 
 const canonicalURL = canonicalSlug
   ? new URL(`/${lang}/${canonicalSlug}`, Astro.site)
   : new URL(Astro.url.pathname, Astro.site)
-
-const altLang: Lang = lang === 'en' ? 'es' : 'en'
-const altLangURL = canonicalSlug ? `/${altLang}/${canonicalSlug}` : `/${altLang}`
 
 const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL
 const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
@@ -56,9 +53,7 @@ const umamiEnabled = Boolean(umamiUrl && umamiWebsiteId)
     {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <link rel="alternate" hreflang={lang} href={canonicalURL} />
-    <link rel="alternate" hreflang={altLang} href={new URL(altLangURL, Astro.site)} />
     <link rel="stylesheet" href="/icons/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="RSS EN" href="/en/rss.xml" />
     <link rel="alternate" type="application/rss+xml" title="RSS ES" href="/es/rss.xml" />
 
     {

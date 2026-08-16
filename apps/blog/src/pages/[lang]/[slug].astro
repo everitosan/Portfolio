@@ -7,7 +7,7 @@ import type { Lang, Tag } from '@/lib/types'
 import { marked } from 'marked'
 
 const { lang, slug } = Astro.params
-if (lang !== 'en' && lang !== 'es') return Astro.redirect('/en', 301)
+if (lang !== 'es') return Astro.redirect(`/es/${slug}`, 301)
 
 const validLang = lang as Lang
 

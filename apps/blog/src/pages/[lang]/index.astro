@@ -6,17 +6,14 @@ import { getFeed } from '@/lib/feed'
 import type { Lang } from '@/lib/types'
 
 const { lang } = Astro.params
-if (lang !== 'en' && lang !== 'es') return Astro.redirect('/en', 301)
+if (lang !== 'es') return Astro.redirect('/es', 301)
 
 const validLang = lang as Lang
 const page = Number(Astro.url.searchParams.get('page') ?? 1)
 const { items: posts, totalPages } = await getFeed(validLang, page)
 
-const title = validLang === 'en' ? "Everardo's Blog" : 'EveSan · Blog'
-const description =
-  validLang === 'en'
-    ? 'Thoughts on software development, tools and ideas.'
-    : 'Pensamientos sobre desarrollo de software, herramientas e ideas.'
+const title = 'EveSan · Blog'
+const description = 'Pensamientos sobre desarrollo de software, herramientas e ideas.'
 ---
 
 <BlogLayout title={title} description={description} lang={validLang}>
@@ -27,7 +24,7 @@ const description =
 
     {posts.length === 0 ? (
       <p class="empty">
-        {validLang === 'en' ? 'No posts yet. Stay tuned!' : 'Sin posts aún. ¡Pronto habrá contenido!'}
+        Sin posts aún. ¡Pronto habrá contenido!
       </p>
     ) : (
       <div class="grid">
@@ -37,9 +34,9 @@ const description =
 
     {totalPages > 1 && (
       <nav class="pagination" aria-label="Pagination">
-        {page > 1 && <a href={`/${validLang}?page=${page - 1}`}>← Prev</a>}
+        {page > 1 && <a href={`/${validLang}?page=${page - 1}`}>← Anterior</a>}
         <span>{page} / {totalPages}</span>
-        {page < totalPages && <a href={`/${validLang}?page=${page + 1}`}>Next →</a>}
+        {page < totalPages && <a href={`/${validLang}?page=${page + 1}`}>Siguiente →</a>}
       </nav>
     )}
   </section>

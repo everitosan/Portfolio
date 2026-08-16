@@ -10,7 +10,7 @@ import type { CanvasData } from '@/lib/canvas-types'
 import { marked } from 'marked'
 
 const { lang, slug } = Astro.params
-if (lang !== 'en' && lang !== 'es') return Astro.redirect('/en', 301)
+if (lang !== 'es') return Astro.redirect(`/es/apuntes/${slug}`, 301)
 const validLang = lang as Lang
 
 const repo = getCanvasRepository()

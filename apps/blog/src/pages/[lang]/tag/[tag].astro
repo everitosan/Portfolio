@@ -6,7 +6,7 @@ import { getFeedByTag, type FeedItem } from '@/lib/feed'
 import type { Lang } from '@/lib/types'
 
 const { lang, tag: tagSlug } = Astro.params
-if (lang !== 'en' && lang !== 'es') return Astro.redirect('/en', 301)
+if (lang !== 'es') return Astro.redirect(`/es/tag/${tagSlug}`, 301)
 
 const validLang = lang as Lang
 
